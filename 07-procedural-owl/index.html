@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Celestial Owl 3D - Interactive 360° Wallpaper</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Three.js & OrbitControls from CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+  <div id="canvas-container"></div>
+
+  <!-- Slide-In Control Drawer Toggle Button -->
+  <button id="toggle-panel-btn" class="panel-toggle-btn" title="Toggle Controls">
+    <span id="toggle-icon">⚙️</span> Controls
+  </button>
+
+  <!-- Slide-In Control Panel Drawer -->
+  <div id="control-panel" class="panel">
+    <div class="panel-header">
+      <h2>🦉 Celestial 3D Owl</h2>
+      <p class="subtitle">360° Camera, Tree Perch & Head Movement</p>
+    </div>
+
+    <div class="control-group">
+      <label>Color Theme:</label>
+      <select id="select-theme">
+        <option value="gold">✨ Celestial Gold & Amber</option>
+        <option value="cyan">🌌 Cyan Aurora & Sapphire</option>
+        <option value="emerald">🌿 Emerald Forest Night</option>
+        <option value="ruby">🔴 Crimson Ruby Moon</option>
+      </select>
+    </div>
+
+    <div class="control-group">
+      <label for="eye-glow-slider">Eye Glow Intensity: <span id="val-eye-glow">100</span>%</label>
+      <input type="range" id="eye-glow-slider" min="20" max="250" step="10" value="100">
+    </div>
+
+    <div class="control-group">
+      <label for="head-turn-slider">Head Motion Speed: <span id="val-head">1.0</span>x</label>
+      <input type="range" id="head-turn-slider" min="0.2" max="3.0" step="0.1" value="1.0">
+    </div>
+
+    <div class="control-group">
+      <label class="chk-label"><input type="checkbox" id="chk-headtrack" checked> Dynamic Head & Eye Cursor Track</label>
+      <label class="chk-label"><input type="checkbox" id="chk-rotate" checked> 360° Auto-Rotate Camera</label>
+      <label class="chk-label"><input type="checkbox" id="chk-fireflies" checked> Floating Firefly Particles</label>
+    </div>
+
+    <button id="btn-download" class="btn btn-primary">📸 Download HD Wallpaper</button>
+
+    <div class="stats">
+      <span>Camera Zoom: <span id="stat-zoom">100</span>%</span>
+      <span>FPS: <span id="stat-fps">60</span></span>
+    </div>
+  </div>
+
+  <div class="hint">
+    <span>🦉 <strong>Drag Mouse</strong> to orbit 360° around the 3D Owl & Tree! <strong>Scroll Wheel</strong> to Zoom in.</span>
+  </div>
+
+  <script src="js/owlArtwork.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
