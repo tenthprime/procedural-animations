@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sea Angels (Clione limacina) - Flocking & Feeding Simulator</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+</head>
+<body>
+  <div id="canvas-container"></div>
+
+  <!-- Slide-In Control Drawer Toggle Button -->
+  <button id="toggle-panel-btn" class="panel-toggle-btn" title="Toggle Controls">
+    <span id="toggle-icon">⚙️</span> Controls
+  </button>
+
+  <!-- Slide-In Control Panel Drawer -->
+  <div id="control-panel" class="panel">
+    <div class="panel-header">
+      <h2>👼 Sea Angels Simulator</h2>
+      <p class="subtitle">Inspired by Ann Nguyen (@ann_nnng)</p>
+    </div>
+
+    <div class="control-group">
+      <label>Click Canvas Action:</label>
+      <div class="btn-grid">
+        <button id="btn-mode-spawn" class="btn active">Spawn Angel</button>
+        <button id="btn-mode-feed" class="btn">Feed Plankton</button>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label for="flock-slider">Flock Size: <span id="val-flock">12</span></label>
+      <input type="range" id="flock-slider" min="2" max="30" step="1" value="12">
+    </div>
+
+    <div class="control-group">
+      <label for="flap-slider">Wing Flap Speed: <span id="val-flap">1.0</span>x</label>
+      <input type="range" id="flap-slider" min="0.3" max="2.5" step="0.1" value="1.0">
+    </div>
+
+    <div class="control-group">
+      <label for="glow-slider">Visceral Glow: <span id="val-glow">100</span>%</label>
+      <input type="range" id="glow-slider" min="0" max="200" step="10" value="100">
+    </div>
+
+    <div class="control-group">
+      <label class="chk-label"><input type="checkbox" id="chk-boids" checked> Enable Flocking Boids AI</label>
+      <label class="chk-label"><input type="checkbox" id="chk-tentacles" checked> Buccal Feeding Tentacles</label>
+    </div>
+
+    <button id="btn-clear" class="btn btn-danger">Clear All</button>
+
+    <div class="stats">
+      <span>Angels: <span id="stat-count">0</span></span>
+      <span>Prey: <span id="stat-prey">0</span></span>
+    </div>
+  </div>
+
+  <div class="hint">
+    <span>💡 <strong>Click</strong> to spawn Angels or drop glowing Plankton prey. Watch Angels open buccal tentacles and strike prey!</span>
+  </div>
+
+  <script src="js/seaAngelFlock.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

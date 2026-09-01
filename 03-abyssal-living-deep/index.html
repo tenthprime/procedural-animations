@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ABYSSAL - The Living Deep (Vertical Ocean Column)</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+</head>
+<body>
+  <div id="canvas-container"></div>
+
+  <!-- Depth Gauge Indicator -->
+  <div class="depth-hud">
+    <div class="depth-number"><span id="hud-depth">0</span> <small>meters</small></div>
+    <div class="zone-name" id="hud-zone">Sunlight Zone (Epipelagic)</div>
+  </div>
+
+  <!-- Slide-In Control Drawer Toggle Button -->
+  <button id="toggle-panel-btn" class="panel-toggle-btn" title="Toggle Controls">
+    <span id="toggle-icon">⚙️</span> Controls
+  </button>
+
+  <!-- Slide-In Control Panel Drawer -->
+  <div id="control-panel" class="panel">
+    <div class="panel-header">
+      <h2>🌊 ABYSSAL - The Living Deep</h2>
+      <p class="subtitle">Inspired by Token Gremlin (@TokenGremlin)</p>
+    </div>
+
+    <div class="control-group">
+      <label>Depth Quick Jump:</label>
+      <div class="btn-grid">
+        <button id="btn-z1" class="btn active">0m Surface</button>
+        <button id="btn-z2" class="btn">500m Twilight</button>
+        <button id="btn-z3" class="btn">2000m Midnight</button>
+        <button id="btn-z4" class="btn">6000m Trench</button>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label for="camera-slider">Vertical Scroll: <span id="val-cam">0</span>m</label>
+      <input type="range" id="camera-slider" min="0" max="8000" step="10" value="0">
+    </div>
+
+    <div class="control-group">
+      <label class="chk-label"><input type="checkbox" id="chk-auto" checked> Auto Depth Descent Drift</label>
+      <label class="chk-label"><input type="checkbox" id="chk-lure" checked> Anglerfish Bioluminescent Lure</label>
+    </div>
+
+    <div class="stats">
+      <span>Living Species: <span id="stat-fauna">0</span></span>
+      <span>Pressure: <span id="stat-atm">1</span> atm</span>
+    </div>
+  </div>
+
+  <div class="hint">
+    <span>📜 <strong>Scroll Mouse Wheel</strong> or drag camera slider to dive from <strong>Waterline $\to$ Hadal Deep Trench</strong>!</span>
+  </div>
+
+  <script src="js/depthFauna.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

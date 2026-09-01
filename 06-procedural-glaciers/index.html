@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GLACIER - The Living Arctic (Procedural WebGL)</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Three.js & OrbitControls from CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+  <div id="canvas-container"></div>
+
+  <!-- Slide-In Control Drawer Toggle Button -->
+  <button id="toggle-panel-btn" class="panel-toggle-btn" title="Toggle Controls">
+    <span id="toggle-icon">⚙️</span> Controls
+  </button>
+
+  <!-- Slide-In Control Panel Drawer -->
+  <div id="control-panel" class="panel">
+    <div class="panel-header">
+      <h2>🧊 GLACIER - The Living Arctic</h2>
+      <p class="subtitle">Procedural Ice, Ocean & Aurora</p>
+    </div>
+
+    <div class="control-group">
+      <label>Environment Preset:</label>
+      <select id="select-preset">
+        <option value="aurora">🌌 Aurora Borealis Night</option>
+        <option value="blizzard">🌨️ Arctic Blizzard Storm</option>
+        <option value="sunlight">☀️ Glacial Calving Sun</option>
+      </select>
+    </div>
+
+    <div class="control-group">
+      <label for="ice-glow-slider">Glacial Ice SSS Glow: <span id="val-ice-glow">100</span>%</label>
+      <input type="range" id="ice-glow-slider" min="10" max="250" step="10" value="100">
+    </div>
+
+    <div class="control-group">
+      <label for="blizzard-slider">Blizzard Intensity: <span id="val-blizzard">50</span>%</label>
+      <input type="range" id="blizzard-slider" min="0" max="100" step="5" value="50">
+    </div>
+
+    <div class="control-group">
+      <label for="aurora-slider">Aurora Intensity: <span id="val-aurora">100</span>%</label>
+      <input type="range" id="aurora-slider" min="0" max="200" step="10" value="100">
+    </div>
+
+    <div class="control-group">
+      <label class="chk-label"><input type="checkbox" id="chk-rotate" checked> Orbit Auto-Rotate</label>
+      <label class="chk-label"><input type="checkbox" id="chk-waves" checked> Dynamic Water Waves</label>
+    </div>
+
+    <div class="stats">
+      <span>Procedural Ice Polys: <span id="stat-poly">48,000</span></span>
+      <span>FPS: <span id="stat-fps">60</span></span>
+    </div>
+  </div>
+
+  <div class="hint">
+    <span>🧊 <strong>Drag Mouse</strong> to orbit 3D Arctic Glaciers & Icebergs! Scroll to Zoom.</span>
+  </div>
+
+  <script src="js/glacierShaders.js"></script>
+  <script src="js/glacierEngine.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

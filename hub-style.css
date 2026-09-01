@@ -1,0 +1,38 @@
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+body, html { width: 100%; height: 100%; overflow: hidden; background: #020617; color: #f9fafb; display: flex; flex-direction: column; }
+
+/* Master Header Navbar */
+.master-header {
+  height: 60px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.25); display: flex; align-items: center;
+  justify-content: space-between; padding: 0 20px; z-index: 100; box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.brand { display: flex; align-items: center; gap: 12px; }
+.logo-icon { font-size: 1.4rem; filter: drop-shadow(0 0 8px #38bdf8); }
+.brand-text h1 { font-size: 0.95rem; font-weight: 800; letter-spacing: 1px; color: #38bdf8; }
+.brand-text .sub-brand { font-size: 0.68rem; color: #94a3b8; display: block; margin-top: -2px; }
+
+/* Sketch Tabs */
+.sketch-tabs { display: flex; align-items: center; gap: 6px; }
+.tab-btn {
+  background: rgba(30, 41, 59, 0.6); border: 1px solid rgba(56, 189, 248, 0.2);
+  color: #bae6fd; padding: 6px 14px; border-radius: 20px; font-size: 0.78rem; font-weight: 600;
+  cursor: pointer; transition: all 0.2s ease;
+}
+.tab-btn:hover { background: rgba(56, 189, 248, 0.25); color: #fff; border-color: #38bdf8; }
+.tab-btn.active { background: #0284c7; color: #fff; border-color: #38bdf8; box-shadow: 0 0 14px rgba(56, 189, 248, 0.5); }
+
+/* Controls */
+.nav-controls { display: flex; align-items: center; gap: 8px; }
+.nav-btn {
+  background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(56, 189, 248, 0.3);
+  color: #7dd3fc; padding: 6px 14px; border-radius: 8px; font-size: 0.78rem; font-weight: 700;
+  cursor: pointer; transition: all 0.2s ease;
+}
+.nav-btn:hover { background: #0284c7; color: #fff; border-color: #38bdf8; }
+.nav-icon-btn { padding: 6px 10px; font-size: 0.9rem; }
+
+/* Fullscreen Viewer Frame */
+.viewer-container { flex: 1; width: 100%; height: calc(100vh - 60px); position: relative; background: #000; }
+#sketch-frame { width: 100%; height: 100%; border: none; display: block; }

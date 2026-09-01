@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>#つぶやきGLSL - Raymarched Shader Studio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Fullscreen WebGL Canvas -->
+  <canvas id="gl-canvas"></canvas>
+
+  <!-- Slide-In Control Drawer Toggle Button -->
+  <button id="toggle-panel-btn" class="panel-toggle-btn" title="Toggle Controls">
+    <span id="toggle-icon">⚙️</span> Controls
+  </button>
+
+  <!-- Slide-In Control Panel Drawer -->
+  <div id="control-panel" class="panel">
+    <div class="panel-header">
+      <h2>✨ #つぶやきGLSL Studio</h2>
+      <p class="subtitle">Inspired by twigl.app & Japanese Shader Golf</p>
+    </div>
+
+    <div class="control-group">
+      <label>Preset Shader:</label>
+      <select id="select-preset">
+        <option value="jelly">1. Raymarched Bioluminescent Jelly SDF</option>
+        <option value="caustics">2. Volumetric Ocean Caustics</option>
+        <option value="plasma">3. Constrained Plasma Wiggler</option>
+      </select>
+    </div>
+
+    <!-- Live GLSL Code Editor -->
+    <div class="control-group">
+      <label>Fragment Shader Code (GLSL):</label>
+      <textarea id="code-editor" spellcheck="false"></textarea>
+    </div>
+
+    <div class="char-hud">
+      <span>Tweet Golf Count: <strong id="char-count">0</strong> / 280 chars</span>
+      <span id="tweet-status" class="status-valid">Valid Tweet!</span>
+    </div>
+
+    <div class="btn-grid">
+      <button id="btn-compile" class="btn active">▶ Compile & Run</button>
+      <button id="btn-reset" class="btn">Reset Code</button>
+    </div>
+
+    <div class="status-box" id="error-log">✨ Shader Compiled Successfully!</div>
+  </div>
+
+  <div class="hint">
+    <span>✨ Edit GLSL Fragment Shader code live on the GPU! Try keeping code under <strong>280 chars for #つぶやきGLSL</strong>.</span>
+  </div>
+
+  <script src="js/presets.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

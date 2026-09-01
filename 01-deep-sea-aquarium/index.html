@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abyssal Kinematics - Procedural Deep Sea Aquarium</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- p5.js library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+</head>
+<body>
+  <div id="canvas-container"></div>
+
+  <!-- Glassmorphism Control Panel -->
+  <div class="control-panel">
+    <div class="panel-header">
+      <h2>🌊 ABYSSAL KINEMATICS</h2>
+      <p class="subtitle">Procedural Deep-Sea Creature Simulator</p>
+    </div>
+
+    <div class="control-group">
+      <label>Spawn Creature (Click Canvas or Button)</label>
+      <div class="btn-grid">
+        <button id="btn-spawn-angel" class="btn active">👼 Sea Angel</button>
+        <button id="btn-spawn-wiggler" class="btn">🐍 Wiggler</button>
+        <button id="btn-spawn-jelly" class="btn">🪼 Comb Jelly</button>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label for="speed-slider">Swim Speed: <span id="val-speed">1.0</span>x</label>
+      <input type="range" id="speed-slider" min="0.2" max="3.0" step="0.1" value="1.0">
+    </div>
+
+    <div class="control-group">
+      <label for="glow-slider">Bioluminescence: <span id="val-glow">100</span>%</label>
+      <input type="range" id="glow-slider" min="0" max="200" step="10" value="100">
+    </div>
+
+    <div class="control-group">
+      <label for="segments-slider">Wiggler Segments: <span id="val-segments">24</span></label>
+      <input type="range" id="segments-slider" min="8" max="48" step="2" value="24">
+    </div>
+
+    <div class="control-group toggle-group">
+      <label class="checkbox-label">
+        <input type="checkbox" id="chk-debug">
+        <span>Show Skeleton & Kinematics Debug</span>
+      </label>
+      <label class="checkbox-label">
+        <input type="checkbox" id="chk-snow" checked>
+        <span>Marine Snow & Particles</span>
+      </label>
+      <label class="checkbox-label">
+        <input type="checkbox" id="chk-lightrays" checked>
+        <span>Volumetric Rays</span>
+      </label>
+    </div>
+
+    <div class="control-group">
+      <div class="btn-grid">
+        <button id="btn-clear" class="btn btn-danger">Clear All</button>
+        <button id="btn-reset" class="btn">Reset Aquarium</button>
+      </div>
+    </div>
+
+    <div class="stats-panel">
+      <div class="stat">Creatures: <span id="stat-count">0</span></div>
+      <div class="stat">FPS: <span id="stat-fps">60</span></div>
+    </div>
+  </div>
+
+  <!-- Instructions Overlay -->
+  <div class="instructions-hint">
+    <span>💡 <strong>Click</strong> anywhere on the water to spawn selected creature. <strong>Click & Drag</strong> to attract creatures.</span>
+  </div>
+
+  <!-- JS Modules -->
+  <script src="js/utils.js"></script>
+  <script src="js/seaAngel.js"></script>
+  <script src="js/segmentWiggler.js"></script>
+  <script src="js/combJelly.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
