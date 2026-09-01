@@ -1,5 +1,6 @@
 /**
  * SeaAngelBoid Class - Advanced Clione limacina Flocking & Feeding Boid AI
+ * Enhanced with High-Speed Food Pursuit & Dynamic Eating Growth Mechanics.
  */
 class SeaAngelBoid {
   constructor(x, y) {
@@ -9,7 +10,10 @@ class SeaAngelBoid {
 
     this.maxSpeed = 2.4;
     this.maxForce = 0.08;
-    this.size = random(38, 54);
+    this.baseSize = random(38, 52);
+    this.size = this.baseSize;
+    this.growthScale = 1.0;
+    this.growTextTimer = 0;
 
     this.wingPhase = random(100);
     this.timeOffset = random(1000);
@@ -18,6 +22,7 @@ class SeaAngelBoid {
     // Feeding state: 0 = swimming, 1 = striking prey with buccal cones
     this.strikeProgress = 0;
     this.targetPrey = null;
+    this.isHunting = false;
 
     // Visceral glowing core organ colors
     this.coreColor = [255, 90 + random(60), 30];
@@ -36,9 +41,10 @@ class SeaAngelBoid {
 
   seekPrey(planktonList) {
     let closest = null;
-    let recordDist = 280;
+    let recordDist = 800; // Screen-wide food detection radius
 
     for (let p of planktonList) {
+      if (p.eaten) continue;
       let d = p5.Vector.dist(this.pos, p.pos);
       if (d < recordDist) {
         recordDist = d;
@@ -47,17 +53,30 @@ class SeaAngelBoid {
     }
 
     if (closest) {
+      this.isHunting = true;
       let desired = p5.Vector.sub(closest.pos, this.pos);
-      desired.setMag(this.maxSpeed * 1.4);
+
+      // High-speed food pursuit ("Run for it!")
+      desired.setMag(this.maxSpeed * 3.0);
       let steer = p5.Vector.sub(desired, this.vel);
-      steer.limit(this.maxForce * 2.0);
+      steer.limit(this.maxForce * 4.0);
       this.acc.add(steer);
 
-      // Trigger buccal cone strike if close enough
-      if (recordDist < 40) {
+      // Rapid wing flapping during sprint pursuit
+      this.wingPhase += 0.20;
+
+      // Trigger buccal cone strike & eating growth if close enough
+      if (recordDist < 45) {
         this.strikeProgress = 1.0;
         closest.eaten = true; // Consumed plankton
+
+        // Growth Evolution: Size increases upon eating food!
+        this.growthScale = min(this.growthScale + 0.15, 3.2);
+        this.size = min(this.size * 1.12, 160);
+        this.growTextTimer = 60; // Show "+GROW!" text
       }
+    } else {
+      this.isHunting = false;
     }
   }
 
@@ -67,6 +86,8 @@ class SeaAngelBoid {
 
     if (planktonList.length > 0) {
       this.seekPrey(planktonList);
+    } else {
+      this.isHunting = false;
     }
 
     // Wandering noise & screen boundaries
@@ -76,30 +97,35 @@ class SeaAngelBoid {
 
     // Physics integration
     this.vel.add(this.acc);
-    this.vel.limit(this.maxSpeed);
+    let speedLimit = this.isHunting ? this.maxSpeed * 2.8 : this.maxSpeed;
+    this.vel.limit(speedLimit);
     this.pos.add(this.vel);
     this.acc.mult(0);
 
     let targetAngle = this.vel.heading() + HALF_PI;
-    this.angle = lerpAngle(this.angle, targetAngle, 0.1);
+    this.angle = lerpAngle(this.angle, targetAngle, 0.12);
 
     if (this.strikeProgress > 0) {
       this.strikeProgress -= 0.03;
     }
+
+    if (this.growTextTimer > 0) {
+      this.growTextTimer--;
+    }
   }
 
   boundaries() {
-    let margin = 80;
+    let margin = 60;
     let force = createVector(0, 0);
-    if (this.pos.x < margin) force.x = 0.5;
-    if (this.pos.x > width - margin) force.x = -0.5;
-    if (this.pos.y < margin) force.y = 0.5;
-    if (this.pos.y > height - margin) force.y = -0.5;
+    if (this.pos.x < margin) force.x = 0.6;
+    if (this.pos.x > width - margin) force.x = -0.6;
+    if (this.pos.y < margin) force.y = 0.6;
+    if (this.pos.y > height - margin) force.y = -0.6;
     this.acc.add(force);
   }
 
   separate(boids) {
-    let desiredSep = 45;
+    let desiredSep = 45 * this.growthScale;
     let steer = createVector(0, 0);
     let count = 0;
     for (let other of boids) {
@@ -183,7 +209,7 @@ class SeaAngelBoid {
     // Translucent gelatinous mantle
     push();
     stroke(186, 230, 253, 160);
-    strokeWeight(1.2);
+    strokeWeight(1.2 * this.growthScale);
     fill(186, 230, 253, 40);
     beginShape();
     vertex(0, -h * 0.5);
@@ -223,18 +249,30 @@ class SeaAngelBoid {
     pop();
 
     // Buccal Feeding Cones (Tentacles)
-    if (showTentacles) {
+    if (showTentacles || this.isHunting || this.strikeProgress > 0) {
       push();
-      stroke(255, 90, 70, 220);
-      strokeWeight(1.8);
+      stroke(255, 90, 70, 230);
+      strokeWeight(1.8 * this.growthScale);
       noFill();
-      let strikeExt = this.strikeProgress * 15; // Extends tentacles forward during prey strike
+      let strikeExt = (this.strikeProgress > 0 ? this.strikeProgress : (this.isHunting ? 0.6 : 0.2)) * 20 * this.growthScale;
       let sway = sin(this.timeOffset * 6) * 3;
 
       // 6 buccal cones popping out from head
       line(-w * 0.15, -h * 0.48, -w * 0.3 + sway, -h * 0.6 - strikeExt);
       line(w * 0.15, -h * 0.48, w * 0.3 + sway, -h * 0.6 - strikeExt);
       line(0, -h * 0.48, sway, -h * 0.65 - strikeExt);
+      pop();
+    }
+
+    // Floating "+GROW!" indicator text over head upon eating food
+    if (this.growTextTimer > 0) {
+      push();
+      noStroke();
+      fill(74, 222, 128, map(this.growTextTimer, 0, 60, 0, 255));
+      textAlign(CENTER);
+      textSize(14 * this.growthScale);
+      textStyle(BOLD);
+      text("+GROW!", 0, -h * 0.65 - (60 - this.growTextTimer) * 0.5);
       pop();
     }
 

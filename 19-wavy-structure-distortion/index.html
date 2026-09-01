@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Procedural Wavy Structure & Wavefront Studio</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+</head>
+<body>
+  <div id="canvas-container"></div>
+
+  <!-- Slide-In Control Drawer Toggle Button -->
+  <button id="toggle-panel-btn" class="panel-toggle-btn" title="Toggle Controls">
+    <span id="toggle-icon">⚙️</span> Controls
+  </button>
+
+  <!-- Slide-In Control Panel Drawer -->
+  <div id="control-panel" class="panel">
+    <div class="panel-header">
+      <h2>🌊 Wavy Structure Studio</h2>
+      <p class="subtitle">Wavefront Interference & Optical Moiré Deformation</p>
+    </div>
+
+    <!-- Upload Custom Image / Face Button -->
+    <div class="control-group">
+      <label for="img-upload-input" class="upload-btn-label">
+        📁 Upload Custom Image / Face (.png/.jpg)
+      </label>
+      <input type="file" id="img-upload-input" accept="image/*" style="display: none;">
+    </div>
+
+    <div class="control-group">
+      <label>Wave Pattern Mode:</label>
+      <select id="select-wave-mode">
+        <option value="diagonal">🌊 Diagonal Wave Bands</option>
+        <option value="concentric">🌀 Concentric Ripple Rings</option>
+        <option value="fluid">🌪️ Perlin Fluid Vortex</option>
+      </select>
+    </div>
+
+    <div class="control-group">
+      <label for="amplitude-slider">Wave Amplitude (Height): <span id="val-amp">1.5</span>x</label>
+      <input type="range" id="amplitude-slider" min="0.2" max="3.0" step="0.1" value="1.5">
+    </div>
+
+    <div class="control-group">
+      <label for="wavelength-slider">Wavelength (Frequency): <span id="val-wave">0.05</span></label>
+      <input type="range" id="wavelength-slider" min="0.01" max="0.15" step="0.005" value="0.05">
+    </div>
+
+    <div class="control-group">
+      <label for="angle-slider">Wave Angle Tilt: <span id="val-angle">45</span>°</label>
+      <input type="range" id="angle-slider" min="0" max="360" step="15" value="45">
+    </div>
+
+    <div class="control-group">
+      <label for="grid-size-slider">Pixel Grid Resolution: <span id="val-grid">45</span> x <span id="val-grid-2">45</span></label>
+      <input type="range" id="grid-size-slider" min="15" max="80" step="5" value="45">
+    </div>
+
+    <div class="control-group">
+      <label class="chk-label"><input type="checkbox" id="chk-crest-glow" checked> Wave Crest Glowing Highlights</label>
+      <label class="chk-label"><input type="checkbox" id="chk-stretch" checked> Wavefront Ribbon Stretching</label>
+    </div>
+
+    <button id="btn-download" class="btn btn-primary">📸 Download HD Snapshot</button>
+
+    <div class="stats">
+      <span>Cells: <span id="stat-cells">2025</span></span>
+      <span>Structure: <span id="stat-wave">Diagonal Bands</span></span>
+    </div>
+  </div>
+
+  <div class="hint">
+    <span>🌊 Click or drag mouse to trigger <strong>interactive ripple wave splashes</strong> across the wavy structure!</span>
+  </div>
+
+  <script src="js/wavePhysics.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

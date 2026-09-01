@@ -4,7 +4,7 @@
 
 let boids = [];
 let planktonList = [];
-let currentClickMode = 'spawn';
+let currentClickMode = 'feed'; // Default to Plankton Food Feed mode!
 
 let uiFlockSize = 12;
 let uiFlapSpeed = 1.0;
@@ -38,14 +38,14 @@ function draw() {
   rect(0, 0, width, height);
   pop();
 
-  // Draw Plankton Prey
+  // Draw Plankton Prey Food Particles
   for (let i = planktonList.length - 1; i >= 0; i--) {
     let p = planktonList[i];
     if (p.eaten) {
       planktonList.splice(i, 1);
       continue;
     }
-    p.y += sin(frameCount * 0.05 + p.x) * 0.3;
+    p.pos.y += sin(frameCount * 0.05 + p.pos.x) * 0.3;
     fill(74, 222, 128, 220); // Glowing green plankton
     noStroke();
     ellipse(p.pos.x, p.pos.y, 8, 8);
@@ -103,6 +103,9 @@ function initUI() {
 
   let btnSpawn = document.getElementById('btn-mode-spawn');
   let btnFeed = document.getElementById('btn-mode-feed');
+
+  btnFeed.classList.add('active');
+  btnSpawn.classList.remove('active');
 
   btnSpawn.addEventListener('click', () => { currentClickMode = 'spawn'; btnSpawn.classList.add('active'); btnFeed.classList.remove('active'); });
   btnFeed.addEventListener('click', () => { currentClickMode = 'feed'; btnFeed.classList.add('active'); btnSpawn.classList.remove('active'); });

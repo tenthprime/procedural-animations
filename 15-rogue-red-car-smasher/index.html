@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rogue Red Car Endless 3D City & Forest Smasher</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Three.js & OrbitControls from CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+  <div id="canvas-container"></div>
+
+  <!-- Arcade HUD Overlay -->
+  <div id="game-hud">
+    <div class="hud-top">
+      <div class="hud-box">
+        <span class="hud-label">SCORE</span>
+        <span id="hud-score">0</span>
+      </div>
+      <div class="hud-box">
+        <span class="hud-label">SMASH COMBO</span>
+        <span id="hud-combo">1x</span>
+      </div>
+      <div class="hud-box">
+        <span class="hud-label">ZONE</span>
+        <span id="hud-zone">🏙️ Downtown City</span>
+      </div>
+    </div>
+
+    <div class="hud-bottom">
+      <div class="hud-speedometer">
+        <span id="hud-speed">0</span> <small>MPH</small>
+      </div>
+      <div id="dent-status" class="hud-status">Car Condition: <span id="val-dent">Pristine</span></div>
+    </div>
+  </div>
+
+  <!-- Touchscreen Controls for Mobile -->
+  <div id="touch-controls">
+    <div class="touch-btn" id="btn-left">◀</div>
+    <div class="touch-btn" id="btn-right">▶</div>
+    <div class="touch-btn btn-gas" id="btn-gas">GAS 🚀</div>
+  </div>
+
+  <!-- Slide-In Control Drawer Toggle Button -->
+  <button id="toggle-panel-btn" class="panel-toggle-btn" title="Toggle Controls">
+    <span id="toggle-icon">⚙️</span> Controls
+  </button>
+
+  <!-- Slide-In Control Panel Drawer -->
+  <div id="control-panel" class="panel">
+    <div class="panel-header">
+      <h2>🏎️ Rogue Red Car Smasher</h2>
+      <p class="subtitle">Endless City & Forest Destruction Game</p>
+    </div>
+
+    <div class="control-group">
+      <label>Camera Mode:</label>
+      <select id="select-camera">
+        <option value="chase">🏎️ 3rd Person Chase View</option>
+        <option value="topdown">🛸 Top-Down Isometric View</option>
+        <option value="orbit">🛸 360° Free Orbit Controls</option>
+      </select>
+    </div>
+
+    <div class="control-group">
+      <label for="speed-slider">Car Top Speed: <span id="val-speed">120</span> MPH</label>
+      <input type="range" id="speed-slider" min="60" max="220" step="10" value="120">
+    </div>
+
+    <div class="control-group">
+      <label for="density-slider">Pedestrian & Animal Density: <span id="val-density">50</span></label>
+      <input type="range" id="density-slider" min="10" max="100" step="5" value="50">
+    </div>
+
+    <!-- Custom Sprites & Maps Uploader -->
+    <div class="control-group">
+      <label for="map-upload-input" class="upload-btn-label">
+        📁 Custom Map / Sprite Loader (.png/.jpg)
+      </label>
+      <input type="file" id="map-upload-input" accept="image/*" style="display: none;">
+    </div>
+
+    <div class="btn-grid">
+      <button id="btn-repair" class="btn">Repair Dents</button>
+      <button id="btn-reset" class="btn btn-danger">Reset Position</button>
+    </div>
+
+    <button id="btn-download" class="btn btn-primary">📸 Download HD Game Snapshot</button>
+  </div>
+
+  <div class="hint">
+    <span>🏎️ <strong>WASD / Arrow Keys</strong> to Drive! Crash into everything—buildings, cars, humans, animals!</span>
+  </div>
+
+  <script src="js/carPhysics.js"></script>
+  <script src="js/worldStreamer.js"></script>
+  <script src="js/entitiesAndCollisions.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

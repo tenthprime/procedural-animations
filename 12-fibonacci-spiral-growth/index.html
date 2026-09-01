@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fibonacci Golden Spiral Box Expansion</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+</head>
+<body>
+  <div id="canvas-container"></div>
+
+  <!-- Slide-In Control Drawer Toggle Button -->
+  <button id="toggle-panel-btn" class="panel-toggle-btn" title="Toggle Controls">
+    <span id="toggle-icon">⚙️</span> Controls
+  </button>
+
+  <!-- Slide-In Control Panel Drawer -->
+  <div id="control-panel" class="panel">
+    <div class="panel-header">
+      <h2>🌀 Fibonacci Golden Spiral</h2>
+      <p class="subtitle">Sequential Box Growth & Golden Ratio</p>
+    </div>
+
+    <div class="control-group">
+      <label for="speed-slider">Growth Speed: <span id="val-speed">1.0</span>s / step</label>
+      <input type="range" id="speed-slider" min="0.2" max="3.0" step="0.1" value="1.0">
+    </div>
+
+    <div class="control-group">
+      <label>Color Palette:</label>
+      <select id="select-theme">
+        <option value="gold">✨ Golden Amber & Cyan</option>
+        <option value="rainbow">🌈 Rainbow Prism</option>
+        <option value="cyber">💖 Cyberpunk Pink & Magenta</option>
+        <option value="emerald">🌿 Emerald Matrix</option>
+      </select>
+    </div>
+
+    <div class="control-group">
+      <label class="chk-label"><input type="checkbox" id="chk-auto" checked> Auto Grow Fibonacci Sequence</label>
+      <label class="chk-label"><input type="checkbox" id="chk-numbers" checked> Show Number Labels On Top</label>
+      <label class="chk-label"><input type="checkbox" id="chk-arc" checked> Draw Golden Spiral Arc</label>
+    </div>
+
+    <div class="btn-grid">
+      <button id="btn-step" class="btn active">Step Next (+1)</button>
+      <button id="btn-reset" class="btn btn-danger">Reset Sequence</button>
+    </div>
+
+    <div class="stats">
+      <span>Fibonacci Step: <span id="stat-step">1</span></span>
+      <span>Current F(n): <span id="stat-fn">1</span></span>
+    </div>
+  </div>
+
+  <div class="hint">
+    <span>🌀 Watch the small box expand following the <strong>Fibonacci Sequence (1, 1, 2, 3, 5, 8, 13...)</strong> with number labels on top!</span>
+  </div>
+
+  <script src="js/fibonacciMath.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

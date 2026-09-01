@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Infinite Glowing Neon Lines - GLSL Studio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Fullscreen WebGL Canvas -->
+  <canvas id="gl-canvas"></canvas>
+
+  <!-- Slide-In Control Drawer Toggle Button -->
+  <button id="toggle-panel-btn" class="panel-toggle-btn" title="Toggle Controls">
+    <span id="toggle-icon">⚙️</span> Controls
+  </button>
+
+  <!-- Slide-In Control Panel Drawer -->
+  <div id="control-panel" class="panel">
+    <div class="panel-header">
+      <h2>⚡ Infinite GLSL Lines</h2>
+      <p class="subtitle">Endless Glowing Neon Ribbons & Tunnels</p>
+    </div>
+
+    <!-- Line & Pattern Customization Sliders -->
+    <div class="control-group">
+      <label for="pattern-select">Line Pattern Algorithm:</label>
+      <select id="pattern-select">
+        <option value="0">1. ⚡ Hyper-Space Laser Tunnel</option>
+        <option value="1">2. 🌊 Flowing Neon Wave Ribbons</option>
+        <option value="2">3. 🌀 Kaleidoscopic Prism Warp</option>
+        <option value="3">4. 🧬 DNA Double Helix Strands</option>
+        <option value="4">5. 🌀 Radial Spiral Vortex</option>
+      </select>
+    </div>
+
+    <div class="control-group">
+      <label for="color-select">Color Spectrum Palette:</label>
+      <select id="color-select">
+        <option value="0">🌈 Rainbow Spectrum (7 Colors)</option>
+        <option value="1">💖 Cyberpunk Cyan & Magenta</option>
+        <option value="2">💚 Emerald & Neon Lime</option>
+        <option value="3">✨ Celestial Gold & Violet</option>
+        <option value="4">🔴 Electric Ruby & Amber</option>
+      </select>
+    </div>
+
+    <div class="control-group">
+      <label for="lines-slider">Number of Lines: <span id="val-lines">8</span></label>
+      <input type="range" id="lines-slider" min="2" max="24" step="1" value="8">
+    </div>
+
+    <div class="control-group">
+      <label for="speed-slider">Line Flow Speed: <span id="val-speed">1.0</span>x</label>
+      <input type="range" id="speed-slider" min="0.2" max="3.0" step="0.1" value="1.0">
+    </div>
+
+    <div class="control-group">
+      <label for="glow-slider">Neon Bloom Glow: <span id="val-glow">100</span>%</label>
+      <input type="range" id="glow-slider" min="20" max="250" step="10" value="100">
+    </div>
+
+    <!-- Live GLSL Code Editor -->
+    <div class="control-group">
+      <label>Fragment Shader Code (GLSL):</label>
+      <textarea id="code-editor" spellcheck="false"></textarea>
+    </div>
+
+    <div class="char-hud">
+      <span>Tweet Golf Count: <strong id="char-count">0</strong> / 280 chars</span>
+      <span id="tweet-status" class="status-valid">Valid Shader!</span>
+    </div>
+
+    <div class="btn-grid">
+      <button id="btn-compile" class="btn active">▶ Compile & Run</button>
+      <button id="btn-reset" class="btn">Reset Code</button>
+    </div>
+
+    <div class="status-box" id="error-log">✨ Shader Compiled Successfully!</div>
+  </div>
+
+  <div class="hint">
+    <span>⚡ Adjust <strong>Number of Lines</strong>, <strong>Color Palette</strong>, and <strong>Patterns</strong> live!</span>
+  </div>
+
+  <script src="js/linePresets.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Procedural Cursive Name Particle Morphing Engine</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+</head>
+<body>
+  <div id="canvas-container"></div>
+
+  <!-- Prominent Top Text Input Bar -->
+  <div id="text-input-bar">
+    <label for="name-input">Type Any Name / Text:</label>
+    <input type="text" id="name-input" value="Antigravity" placeholder="Enter name or text..." maxlength="24">
+    <button id="btn-morph" class="btn-morph">✨ Morph Particles</button>
+  </div>
+
+  <!-- Phase Progression HUD Badge -->
+  <div id="hud-phase-badge">
+    <span id="hud-phase">1️⃣ Dots Inflow Swarm</span>
+  </div>
+
+  <!-- Slide-In Control Drawer Toggle Button -->
+  <button id="toggle-panel-btn" class="panel-toggle-btn" title="Toggle Controls">
+    <span id="toggle-icon">⚙️</span> Controls
+  </button>
+
+  <!-- Slide-In Control Panel Drawer -->
+  <div id="control-panel" class="panel">
+    <div class="panel-header">
+      <h2>✍️ Cursive Name Particle Studio</h2>
+      <p class="subtitle">Dots Converge & Connect into Cursive Script</p>
+    </div>
+
+    <div class="control-group">
+      <label for="num-colors-slider">Number of Colors: <span id="val-colors">6</span> Colors</label>
+      <input type="range" id="num-colors-slider" min="2" max="12" step="1" value="6">
+    </div>
+
+    <div class="control-group">
+      <label>Color Palette Theme:</label>
+      <select id="select-theme">
+        <option value="rainbow">🌈 Rainbow Spectrum</option>
+        <option value="cyber">💖 Cyberpunk Pink & Cyan</option>
+        <option value="gold">✨ Celestial Gold & Violet</option>
+        <option value="emerald">🌿 Emerald & Neon Lime</option>
+      </select>
+    </div>
+
+    <div class="control-group">
+      <label for="particles-slider">Particle Swarm Count: <span id="val-particles">1200</span></label>
+      <input type="range" id="particles-slider" min="400" max="2500" step="100" value="1200">
+    </div>
+
+    <div class="control-group">
+      <label for="speed-slider">Flow & Morph Speed: <span id="val-speed">1.0</span>x</label>
+      <input type="range" id="speed-slider" min="0.2" max="3.0" step="0.1" value="1.0">
+    </div>
+
+    <div class="control-group">
+      <label class="chk-label"><input type="checkbox" id="chk-lines" checked> Connect Colliding Dots into Lines</label>
+      <label class="chk-label"><input type="checkbox" id="chk-glow" checked> Intense Neon Bloom Glow</label>
+    </div>
+
+    <button id="btn-download" class="btn btn-primary">📸 Download HD Snapshot</button>
+
+    <div class="stats">
+      <span>Active Dots: <span id="stat-dots">1200</span></span>
+      <span>Connected Lines: <span id="stat-lines">0</span></span>
+    </div>
+  </div>
+
+  <div class="hint">
+    <span>✍️ Watch the 3-phase progression: <strong>Dots Inflow $\to$ Collide & Form Lines $\to$ Write Cursive Name!</strong></span>
+  </div>
+
+  <script src="js/textStrokes.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

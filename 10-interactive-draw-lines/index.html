@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Draw-to-Generate Neon Line Studio</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+</head>
+<body>
+  <div id="canvas-container"></div>
+
+  <!-- Slide-In Control Drawer Toggle Button -->
+  <button id="toggle-panel-btn" class="panel-toggle-btn" title="Toggle Controls">
+    <span id="toggle-icon">⚙️</span> Controls
+  </button>
+
+  <!-- Slide-In Control Panel Drawer -->
+  <div id="control-panel" class="panel">
+    <div class="panel-header">
+      <h2>✏️ Draw-to-Generate Studio</h2>
+      <p class="subtitle">Draw Input Strokes to Replicate Art</p>
+    </div>
+
+    <div class="control-group">
+      <label>Generative Pattern Mode:</label>
+      <select id="select-mode">
+        <option value="kaleido">1. 🌀 Radial Kaleido-Symmetry</option>
+        <option value="ribbon">2. 🌊 Flowing Ribbon Waves</option>
+        <option value="tunnel">3. ⚡ 3D Holographic Tunnel</option>
+        <option value="particles">4. ✨ Bioluminescent Emitter</option>
+      </select>
+    </div>
+
+    <div class="control-group">
+      <label for="symmetry-slider">Symmetry Axes: <span id="val-sym">8</span>x</label>
+      <input type="range" id="symmetry-slider" min="2" max="16" step="2" value="8">
+    </div>
+
+    <div class="control-group">
+      <label>Color Theme Palette:</label>
+      <select id="select-theme">
+        <option value="cyber">💖 Cyberpunk Pink & Cyan</option>
+        <option value="gold">✨ Celestial Gold & Amber</option>
+        <option value="emerald">🌿 Emerald Matrix</option>
+        <option value="rainbow">🌈 Rainbow Prism</option>
+      </select>
+    </div>
+
+    <div class="control-group">
+      <label for="speed-slider">Motion Wave Speed: <span id="val-speed">1.0</span>x</label>
+      <input type="range" id="speed-slider" min="0.2" max="3.0" step="0.1" value="1.0">
+    </div>
+
+    <div class="control-group">
+      <label for="glow-slider">Neon Glow Bloom: <span id="val-glow">100</span>%</label>
+      <input type="range" id="glow-slider" min="20" max="250" step="10" value="100">
+    </div>
+
+    <div class="btn-grid">
+      <button id="btn-clear" class="btn btn-danger">Clear Canvas</button>
+      <button id="btn-preset" class="btn">Demo Seed Stroke</button>
+    </div>
+
+    <button id="btn-download" class="btn btn-primary">📸 Download HD Snapshot</button>
+
+    <div class="stats">
+      <span>Strokes Drawn: <span id="stat-strokes">0</span></span>
+      <span>FPS: <span id="stat-fps">60</span></span>
+    </div>
+  </div>
+
+  <div class="hint">
+    <span>✏️ <strong>Click & Drag Mouse</strong> on the canvas to draw custom strokes! Watch your input generate infinite glowing neon art!</span>
+  </div>
+
+  <script src="js/strokeGenerators.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

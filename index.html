@@ -3,80 +3,394 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Procedural Animations Suite - Master Navigator</title>
+  <title>threejs.org Style Showcase Gallery - Procedural Animations</title>
   <link rel="stylesheet" href="hub-style.css">
+  <script src="js/hubThumbnails.js"></script>
 </head>
 <body>
   <!-- Master Top Navigation Bar -->
   <header class="master-header">
     <div class="brand">
-      <span class="logo-icon">✨</span>
-      <div class="brand-text">
-        <h1>PROCEDURAL ANIMATIONS</h1>
-        <span class="sub-brand">Creative Coding & Shader Suite</span>
+      <button id="btn-show-gallery" class="brand-btn" title="threejs.org Gallery View">
+        <span class="logo-icon">three.js</span>
+        <div class="brand-text">
+          <h1>PROCEDURAL ANIMATIONS</h1>
+          <span class="sub-brand">20 Creative Coding & Shader Projects</span>
+        </div>
+      </button>
+    </div>
+
+    <!-- Search Input Bar (threejs.org Style) -->
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Search 20 projects (e.g. wavy, structure, pixel, face, image, bounce)...">
+    </div>
+
+    <!-- Category Filter Pills -->
+    <div class="category-pills">
+      <button class="pill active" data-cat="all">All (20)</button>
+      <button class="pill" data-cat="math">📐 Math & Lines</button>
+      <button class="pill" data-cat="game">🎮 Games & 3D</button>
+      <button class="pill" data-cat="sea">🌊 Deep Sea</button>
+    </div>
+
+    <!-- Clean Project Dropdown Selector -->
+    <div class="selector-dropdown">
+      <button id="btn-select-trigger" class="dropdown-trigger">
+        <span id="active-sketch-title">🌊 20. Procedural Wavy Structure Studio</span>
+        <span class="arrow-icon">▾</span>
+      </button>
+
+      <!-- Custom Floating Dropdown Menu -->
+      <div id="dropdown-menu" class="dropdown-menu">
+        <div class="dropdown-header">Select Project (20 Sketches)</div>
+        <div class="dropdown-list">
+          <div class="dropdown-category">📐 Math & Art</div>
+          <button class="dropdown-item" data-index="0">🌊 20. Procedural Wavy Structure Studio</button>
+          <button class="dropdown-item" data-index="1">🖼️ 19. Pixelated Image Elastic Grid</button>
+          <button class="dropdown-item" data-index="2">🏀 18. OpenProcessing Elastic Grid Bounce</button>
+          <button class="dropdown-item" data-index="3">✍️ 17. Cursive Name Particle Morphing</button>
+          <button class="dropdown-item" data-index="4">🌀 12. Fibonacci Golden Spiral</button>
+          <button class="dropdown-item" data-index="5">✂️ 11. Grid Line Splitter & Weaver</button>
+          <button class="dropdown-item" data-index="6">✏️ 10. Interactive Draw-to-Generate</button>
+          <button class="dropdown-item" data-index="7">⚡ 09. Infinite Glowing GLSL Lines</button>
+
+          <div class="dropdown-category">🎮 Arcade Games & 3D</div>
+          <button class="dropdown-item" data-index="8">🏎️ 16. Rogue Red Car Smasher</button>
+          <button class="dropdown-item" data-index="9">🗺️ 15. Map Image → 3D City & Water</button>
+          <button class="dropdown-item" data-index="10">🏙️ 14. Three.js Real-World City & Traffic</button>
+          <button class="dropdown-item" data-index="11">🏖️ 08. Three.js Ocean Beach & Waves</button>
+          <button class="dropdown-item" data-index="12">🦉 07. Celestial 3D Owl & Tree Perch</button>
+          <button class="dropdown-item" data-index="13">🧊 06. GLACIER - The Living Arctic</button>
+          <button class="dropdown-item" data-index="14">🌲 05. Endless 3D POV Forest</button>
+
+          <div class="dropdown-category">🌊 Deep Sea & Shaders</div>
+          <button class="dropdown-item" data-index="15">👼 01. Sea Angels Flocking & Feeding</button>
+          <button class="dropdown-item" data-index="16">🌀 02. Okazz Constrain() Lab</button>
+          <button class="dropdown-item" data-index="17">🌊 03. ABYSSAL - The Living Deep</button>
+          <button class="dropdown-item" data-index="18">✨ 04. #つぶやきGLSL Studio</button>
+          <button class="dropdown-item" data-index="19">🐠 13. Combined Deep Sea Aquarium</button>
+        </div>
       </div>
     </div>
 
-    <!-- Quick Sketch Selector Tabs -->
-    <nav class="sketch-tabs">
-      <button class="tab-btn active" data-src="08-threejs-beach-waves/index.html" data-index="0">🏖️ Three.js Ocean Beach</button>
-      <button class="tab-btn" data-src="07-procedural-owl/index.html" data-index="1">🦉 Celestial 3D Owl</button>
-      <button class="tab-btn" data-src="06-procedural-glaciers/index.html" data-index="2">🧊 GLACIER Arctic</button>
-      <button class="tab-btn" data-src="05-infinite-pov-forest/index.html" data-index="3">🌲 Endless POV Forest</button>
-      <button class="tab-btn" data-src="01-sea-angels/index.html" data-index="4">👼 Sea Angels</button>
-      <button class="tab-btn" data-src="02-okazz-constrain-wigglers/index.html" data-index="5">🌀 Okazz Wigglers</button>
-      <button class="tab-btn" data-src="03-abyssal-living-deep/index.html" data-index="6">🌊 ABYSSAL Deep</button>
-      <button class="tab-btn" data-src="04-tsubuyaki-glsl-shaders/index.html" data-index="7">✨ #つぶやきGLSL</button>
-      <button class="tab-btn" data-src="01-deep-sea-aquarium/index.html" data-index="8">🐠 Full Aquarium</button>
-    </nav>
-
-    <!-- Cycle Next/Prev Controls -->
+    <!-- Navigation Controls -->
     <div class="nav-controls">
+      <button id="btn-gallery-toggle" class="nav-btn" title="Gallery Grid View">🏠 Gallery</button>
       <button id="btn-prev" class="nav-btn" title="Previous Sketch">◀ Prev</button>
       <button id="btn-next" class="nav-btn" title="Next Sketch">Next ▶</button>
       <button id="btn-fullscreen" class="nav-btn nav-icon-btn" title="Toggle Fullscreen">⛶</button>
     </div>
   </header>
 
-  <!-- Fullscreen Interactive Canvas Frame -->
-  <main class="viewer-container">
-    <iframe id="sketch-frame" src="08-threejs-beach-waves/index.html" frameborder="0"></iframe>
+  <!-- threejs.org Style Tile Gallery Overlay View -->
+  <div id="gallery-view" class="gallery-container open">
+    <div class="gallery-header">
+      <h2>three.js / procedural animations</h2>
+      <p>Interactive 3D WebGL, Wavy Structure Art, Arcade Games & Creative Coding Showcase</p>
+    </div>
+
+    <div class="card-grid" id="card-grid">
+      <!-- 20. Procedural Wavy Structure Studio -->
+      <div class="card-tile" data-cat="math" data-index="0" data-thumb="wavy">
+        <div class="tile-thumb-container"><img class="tile-img" id="img-wavy" alt="Wavy Structure Studio"></div>
+        <div class="tile-info">
+          <span class="tag">WAVY STRUCTURE</span>
+          <h3>🌊 20. Procedural Wavy Structure Studio</h3>
+          <p>Amplifies diagonal wave bands, concentric ripples, perlin noise fluid vortex, wave crest glowing highlights & mouse wave splashes.</p>
+        </div>
+      </div>
+
+      <!-- 19. Pixelated Image Elastic Grid -->
+      <div class="card-tile" data-cat="math" data-index="1" data-thumb="pixel">
+        <div class="tile-thumb-container"><img class="tile-img" id="img-pixel" alt="Pixelated Image Elastic Grid"></div>
+        <div class="tile-info">
+          <span class="tag">PIXELATED ART</span>
+          <h3>🖼️ 19. Pixelated Image Elastic Grid</h3>
+          <p>Samples pixel colors from uploaded face & artwork images across an N x N grid with OpenProcessing squish physics & mouse ripples.</p>
+        </div>
+      </div>
+
+      <!-- 18. OpenProcessing Elastic Grid Bounce -->
+      <div class="card-tile" data-cat="math" data-index="2" data-thumb="bounce">
+        <div class="tile-thumb-container"><img class="tile-img" id="img-bounce" alt="OpenProcessing Elastic Grid Bounce"></div>
+        <div class="tile-info">
+          <span class="tag">GENERATIVE ART</span>
+          <h3>🏀 18. OpenProcessing Elastic Grid Bounce</h3>
+          <p>Mirrored inverted cell grid with easeInOutQuart ball lift physics, squish/stretch deformation & interactive mouse wave triggers.</p>
+        </div>
+      </div>
+
+      <!-- 17. Cursive Name Particle Morphing -->
+      <div class="card-tile" data-cat="math" data-index="3" data-thumb="cursive">
+        <div class="tile-thumb-container"><img class="tile-img" id="img-cursive" alt="Cursive Name Particle Morph"></div>
+        <div class="tile-info">
+          <span class="tag">PARTICLE MORPHING</span>
+          <h3>✍️ 17. Cursive Name Particle Morphing</h3>
+          <p>Colorful dots stream from all sides, collide into connected lines, and morph into any custom typed name in glowing cursive script.</p>
+        </div>
+      </div>
+
+      <!-- 16. Rogue Red Car Smasher -->
+      <div class="card-tile" data-cat="game" data-index="4" data-thumb="car">
+        <div class="tile-thumb-container"><img class="tile-img" id="img-car" alt="Rogue Red Car Smasher"></div>
+        <div class="tile-info">
+          <span class="tag">3D ARCADE GAME</span>
+          <h3>🏎️ 16. Rogue Red Car Smasher</h3>
+          <p>Drive an invincible Rogue Red Car, smashing through city skyscrapers & dense forests with mesh dent physics & ragdoll impacts.</p>
+        </div>
+      </div>
+
+      <!-- 15. Map Image to 3D City -->
+      <div class="card-tile" data-cat="game" data-index="5" data-thumb="map3d">
+        <div class="tile-thumb-container"><img class="tile-img" id="img-map3d" alt="Map to 3D City"></div>
+        <div class="tile-info">
+          <span class="tag">3D & MAP GENERATOR</span>
+          <h3>🗺️ 15. Map Image → 3D City Engine</h3>
+          <p>Upload any drawn map image (.png/.jpg) to extrude 3D buildings, rivers, roads & parks.</p>
+        </div>
+      </div>
+
+      <!-- 14. Real-World 3D City -->
+      <div class="card-tile" data-cat="game" data-index="6" data-thumb="city3d">
+        <div class="tile-thumb-container"><img class="tile-img" id="img-city3d" alt="Real-World City"></div>
+        <div class="tile-info">
+          <span class="tag">3D & REALISM</span>
+          <h3>🏙️ 14. Three.js Real-World City & Traffic</h3>
+          <p>Textured skyscrapers, asphalt roads, lane markings, street lamps & live car traffic.</p>
+        </div>
+      </div>
+
+      <!-- 08. Three.js Ocean Beach -->
+      <div class="card-tile" data-cat="game" data-index="7" data-thumb="beach">
+        <div class="tile-thumb-container"><img class="tile-img" id="img-beach" alt="Ocean Beach"></div>
+        <div class="tile-info">
+          <span class="tag">3D & OCEAN</span>
+          <h3>🏖️ 08. Three.js Ocean Beach & Waves</h3>
+          <p>Photorealistic Gerstner ocean waves, seafoam, shallow turquoise water & wet sand reflections.</p>
+        </div>
+      </div>
+
+      <!-- 07. Celestial 3D Owl -->
+      <div class="card-tile" data-cat="game" data-index="8" data-thumb="owl">
+        <div class="tile-thumb-container"><img class="tile-img" id="img-owl" alt="Celestial Owl"></div>
+        <div class="tile-info">
+          <span class="tag">3D & ART</span>
+          <h3>🦉 07. Celestial 3D Owl & Tree Perch</h3>
+          <p>Full 3D WebGL scene with 360° OrbitControls camera, tree perch branch & head rotation.</p>
+        </div>
+      </div>
+
+      <!-- 06. GLACIER Arctic -->
+      <div class="card-tile" data-cat="game" data-index="9" data-thumb="glacier">
+        <div class="tile-thumb-container"><img class="tile-img" id="img-glacier" alt="GLACIER Arctic"></div>
+        <div class="tile-info">
+          <span class="tag">3D & ARCTIC</span>
+          <h3>🧊 06. GLACIER - The Living Arctic</h3>
+          <p>100% procedural 3D glacier cliffs, Subsurface Scattering translucent ice & Aurora sky.</p>
+        </div>
+      </div>
+
+      <!-- 05. Endless POV Forest -->
+      <div class="card-tile" data-cat="game" data-index="10" data-thumb="forest">
+        <div class="tile-thumb-container"><img class="tile-img" id="img-forest" alt="Endless POV Forest"></div>
+        <div class="tile-info">
+          <span class="tag">3D & POV</span>
+          <h3>🌲 05. Endless 3D POV Forest</h3>
+          <p>First-person flight simulator through a 3D bioluminescent forest with volumetric fog.</p>
+        </div>
+      </div>
+
+      <!-- 12. Fibonacci Spiral -->
+      <div class="card-tile" data-cat="math" data-index="11" data-thumb="fibonacci">
+        <div class="tile-thumb-container"><img class="tile-img" id="img-fibonacci" alt="Fibonacci Spiral"></div>
+        <div class="tile-info">
+          <span class="tag">MATH & LINES</span>
+          <h3>🌀 12. Fibonacci Golden Spiral</h3>
+          <p>Sequential box expansion following Fibonacci (1, 1, 2, 3, 5, 8, 13...) with number labels on top.</p>
+        </div>
+      </div>
+
+      <!-- 11. Grid Line Splitter -->
+      <div class="card-tile" data-cat="math" data-index="12" data-thumb="grid">
+        <div class="tile-thumb-container"><img class="tile-img" id="img-grid" alt="Grid Line Splitter"></div>
+        <div class="tile-info">
+          <span class="tag">MATH & LINES</span>
+          <h3>✂️ 11. Grid Line Splitter</h3>
+          <p>Dot matrix grid traversed by a primary weaving line, sliced in half by a secondary cutter line.</p>
+        </div>
+      </div>
+
+      <!-- 10. Draw to Generate -->
+      <div class="card-tile" data-cat="math" data-index="13" data-thumb="draw">
+        <div class="tile-thumb-container"><img class="tile-img" id="img-draw" alt="Draw to Generate"></div>
+        <div class="tile-info">
+          <span class="tag">MATH & LINES</span>
+          <h3>✏️ 10. Draw-to-Generate Studio</h3>
+          <p>Click & drag to draw custom strokes, generating instant radial symmetries & 3D tunnels.</p>
+        </div>
+      </div>
+
+      <!-- 09. Infinite GLSL Lines -->
+      <div class="card-tile" data-cat="math" data-index="14" data-thumb="glsl">
+        <div class="tile-thumb-container"><img class="tile-img" id="img-glsl" alt="Infinite GLSL Lines"></div>
+        <div class="tile-info">
+          <span class="tag">MATH & SHADERS</span>
+          <h3>⚡ 09. Infinite Glowing GLSL Lines</h3>
+          <p>Never-ending flow of glowing laser ribbons, line count customizer & live GLSL editor.</p>
+        </div>
+      </div>
+
+      <!-- 01. Sea Angels -->
+      <div class="card-tile" data-cat="sea" data-index="15" data-thumb="angel">
+        <div class="tile-thumb-container"><img class="tile-img" id="img-angel" alt="Sea Angels"></div>
+        <div class="tile-info">
+          <span class="tag">DEEP SEA</span>
+          <h3>👼 01. Sea Angels Flocking & Feeding</h3>
+          <p>Clione limacina boids, high-speed food pursuit sprint AI & dynamic eating growth mechanics.</p>
+        </div>
+      </div>
+
+      <!-- 02. Okazz Wigglers -->
+      <div class="card-tile" data-cat="sea" data-index="16" data-thumb="okazz">
+        <div class="tile-thumb-container"><img class="tile-img" id="img-okazz" alt="Okazz Wigglers"></div>
+        <div class="tile-info">
+          <span class="tag">KINEMATICS</span>
+          <h3>🌀 02. Okazz Constrain() Lab</h3>
+          <p>Distance-constrained joint kinematics, screen edge bouncing & mouse spring tension pulling.</p>
+        </div>
+      </div>
+
+      <!-- 03. ABYSSAL Deep -->
+      <div class="card-tile" data-cat="sea" data-index="17" data-thumb="abyssal">
+        <div class="tile-thumb-container"><img class="tile-img" id="img-abyssal" alt="ABYSSAL Deep"></div>
+        <div class="tile-info">
+          <span class="tag">DEEP SEA</span>
+          <h3>🌊 03. ABYSSAL - The Living Deep</h3>
+          <p>Vertical ocean column scrolling from 0m Surface down to 8,000m Hadal Trench fauna.</p>
+        </div>
+      </div>
+
+      <!-- 04. #つぶやきGLSL -->
+      <div class="card-tile" data-cat="sea" data-index="18" data-thumb="tsubuyaki">
+        <div class="tile-thumb-container"><img class="tile-img" id="img-tsubuyaki" alt="#つぶやきGLSL"></div>
+        <div class="tile-info">
+          <span class="tag">GLSL SHADERS</span>
+          <h3>✨ 04. #つぶやきGLSL Studio</h3>
+          <p>Live WebGL GLSL fragment shader editor with tweet code golfing & raymarched bioluminescent SDFs.</p>
+        </div>
+      </div>
+
+      <!-- 13. Full Aquarium -->
+      <div class="card-tile" data-cat="sea" data-index="19" data-thumb="aquarium">
+        <div class="tile-thumb-container"><img class="tile-img" id="img-aquarium" alt="Full Aquarium"></div>
+        <div class="tile-info">
+          <span class="tag">DEEP SEA</span>
+          <h3>🐠 13. Combined Deep Sea Aquarium</h3>
+          <p>Full aquarium combining Sea Angels, Okazz Segment Wigglers, marine snow & light rays.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fullscreen Interactive Canvas Frame Viewer -->
+  <main id="viewer-container" class="viewer-container">
+    <iframe id="sketch-frame" src="19-wavy-structure-distortion/index.html" frameborder="0"></iframe>
   </main>
 
   <script>
     const sketches = [
-      "08-threejs-beach-waves/index.html",
-      "07-procedural-owl/index.html",
-      "06-procedural-glaciers/index.html",
-      "05-infinite-pov-forest/index.html",
-      "01-sea-angels/index.html",
-      "02-okazz-constrain-wigglers/index.html",
-      "03-abyssal-living-deep/index.html",
-      "04-tsubuyaki-glsl-shaders/index.html",
-      "01-deep-sea-aquarium/index.html"
+      { title: "🌊 20. Procedural Wavy Structure Studio", src: "19-wavy-structure-distortion/index.html", cat: "math" },
+      { title: "🖼️ 19. Pixelated Image Elastic Grid", src: "18-pixelated-image-elastic-grid/index.html", cat: "math" },
+      { title: "🏀 18. OpenProcessing Elastic Grid Bounce", src: "17-openprocessing-grid-bounce/index.html", cat: "math" },
+      { title: "✍️ 17. Cursive Name Particle Morphing", src: "16-cursive-name-particle-morph/index.html", cat: "math" },
+      { title: "🏎️ 16. Rogue Red Car Smasher", src: "15-rogue-red-car-smasher/index.html", cat: "game" },
+      { title: "🗺️ 15. Map Image → 3D Real-World City & Water", src: "14-map-image-to-3d-city/index.html", cat: "game" },
+      { title: "🏙️ 14. Three.js Real-World City & Traffic", src: "13-threejs-real-world-city/index.html", cat: "game" },
+      { title: "🏖️ 08. Three.js Ocean Beach & Waves", src: "08-threejs-beach-waves/index.html", cat: "game" },
+      { title: "🦉 07. Celestial 3D Owl & Tree Perch", src: "07-procedural-owl/index.html", cat: "game" },
+      { title: "🧊 06. GLACIER - The Living Arctic", src: "06-procedural-glaciers/index.html", cat: "game" },
+      { title: "🌲 05. Endless 3D POV Forest", src: "05-infinite-pov-forest/index.html", cat: "game" },
+      { title: "🌀 12. Fibonacci Golden Spiral", src: "12-fibonacci-spiral-growth/index.html", cat: "math" },
+      { title: "✂️ 11. Grid Line Splitter & Weaver", src: "11-grid-line-splitter/index.html", cat: "math" },
+      { title: "✏️ 10. Interactive Draw-to-Generate", src: "10-interactive-draw-lines/index.html", cat: "math" },
+      { title: "⚡ 09. Infinite Glowing GLSL Lines", src: "09-infinite-glsl-lines/index.html", cat: "math" },
+      { title: "👼 01. Sea Angels Flocking & Feeding", src: "01-sea-angels/index.html", cat: "sea" },
+      { title: "🌀 02. Okazz Constrain() Lab", src: "02-okazz-constrain-wigglers/index.html", cat: "sea" },
+      { title: "🌊 03. ABYSSAL - The Living Deep", src: "03-abyssal-living-deep/index.html", cat: "sea" },
+      { title: "✨ 04. #つぶやきGLSL Studio", src: "04-tsubuyaki-glsl-shaders/index.html", cat: "sea" },
+      { title: "🐠 13. Combined Deep Sea Aquarium", src: "01-deep-sea-aquarium/index.html", cat: "sea" }
     ];
 
     let currentIndex = 0;
     const iframe = document.getElementById('sketch-frame');
-    const tabs = document.querySelectorAll('.tab-btn');
+    const dropdownMenu = document.getElementById('dropdown-menu');
+    const triggerBtn = document.getElementById('btn-select-trigger');
+    const activeTitle = document.getElementById('active-sketch-title');
+    const galleryView = document.getElementById('gallery-view');
+    const searchInput = document.getElementById('search-input');
+
+    window.onload = () => {
+      let thumbs = generateProjectThumbnails();
+      for (let key in thumbs) {
+        let imgEl = document.getElementById('img-' + key);
+        if (imgEl) imgEl.src = thumbs[key];
+      }
+    };
 
     function loadSketch(index) {
       if (index < 0) index = sketches.length - 1;
       if (index >= sketches.length) index = 0;
 
       currentIndex = index;
-      iframe.src = sketches[currentIndex];
+      iframe.src = sketches[currentIndex].src;
+      activeTitle.innerText = sketches[currentIndex].title;
 
-      tabs.forEach((tab, i) => {
-        if (i === currentIndex) tab.classList.add('active');
-        else tab.classList.remove('active');
-      });
+      galleryView.classList.remove('open');
+      dropdownMenu.classList.remove('open');
     }
 
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        let idx = parseInt(tab.getAttribute('data-index'));
+    triggerBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      dropdownMenu.classList.toggle('open');
+    });
+
+    document.querySelectorAll('.dropdown-item').forEach(item => {
+      item.addEventListener('click', () => {
+        let idx = parseInt(item.getAttribute('data-index'));
         loadSketch(idx);
+      });
+    });
+
+    window.addEventListener('click', () => dropdownMenu.classList.remove('open'));
+
+    document.getElementById('btn-show-gallery').addEventListener('click', () => galleryView.classList.toggle('open'));
+    document.getElementById('btn-gallery-toggle').addEventListener('click', () => galleryView.classList.toggle('open'));
+
+    document.querySelectorAll('.card-tile').forEach(tile => {
+      tile.addEventListener('click', () => {
+        let idx = parseInt(tile.getAttribute('data-index'));
+        loadSketch(idx);
+      });
+    });
+
+    searchInput.addEventListener('input', (e) => {
+      let query = e.target.value.toLowerCase().trim();
+      document.querySelectorAll('.card-tile').forEach(tile => {
+        let text = tile.innerText.toLowerCase();
+        tile.style.display = text.includes(query) ? 'flex' : 'none';
+      });
+    });
+
+    document.querySelectorAll('.pill').forEach(pill => {
+      pill.addEventListener('click', () => {
+        document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+
+        let cat = pill.getAttribute('data-cat');
+        document.querySelectorAll('.card-tile').forEach(tile => {
+          tile.style.display = (cat === 'all' || tile.getAttribute('data-cat') === cat) ? 'flex' : 'none';
+        });
       });
     });
 
@@ -91,7 +405,6 @@
       }
     });
 
-    // Keyboard Arrow Keys to switch sketches
     window.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowLeft') loadSketch(currentIndex - 1);
       if (e.key === 'ArrowRight') loadSketch(currentIndex + 1);

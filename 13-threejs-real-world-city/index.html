@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Three.js Real-World 3D City & Traffic</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Three.js & OrbitControls from CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+  <div id="canvas-container"></div>
+
+  <!-- Slide-In Control Drawer Toggle Button -->
+  <button id="toggle-panel-btn" class="panel-toggle-btn" title="Toggle Controls">
+    <span id="toggle-icon">⚙️</span> Controls
+  </button>
+
+  <!-- Slide-In Control Panel Drawer -->
+  <div id="control-panel" class="panel">
+    <div class="panel-header">
+      <h2>🏙️ Three.js Real-World City</h2>
+      <p class="subtitle">Textured Buildings, Roads & Live Traffic</p>
+    </div>
+
+    <div class="control-group">
+      <label>Environment Lighting Preset:</label>
+      <select id="select-preset">
+        <option value="daylight">☀️ Photorealistic Daylight</option>
+        <option value="sunset">🌅 Sunset Golden Hour</option>
+        <option value="night">🌃 Cyberpunk City Night</option>
+      </select>
+    </div>
+
+    <div class="control-group">
+      <label>Camera View Preset:</label>
+      <select id="select-camera">
+        <option value="drone">🚁 Drone Aerial Perspective</option>
+        <option value="street">🚶 Pedestrian Street Level</option>
+        <option value="chase">🚘 Traffic Chase View</option>
+      </select>
+    </div>
+
+    <div class="control-group">
+      <label for="speed-slider">Traffic Speed: <span id="val-speed">1.0</span>x</label>
+      <input type="range" id="speed-slider" min="0.2" max="3.0" step="0.1" value="1.0">
+    </div>
+
+    <div class="control-group">
+      <label for="cars-slider">Traffic Density: <span id="val-cars">40</span> Vehicles</label>
+      <input type="range" id="cars-slider" min="10" max="80" step="5" value="40">
+    </div>
+
+    <div class="control-group">
+      <label class="chk-label"><input type="checkbox" id="chk-headlights" checked> Car Headlights & Taillights</label>
+      <label class="chk-label"><input type="checkbox" id="chk-streetlamps" checked> Street Lamp Lighting</label>
+      <label class="chk-label"><input type="checkbox" id="chk-rotate"> Orbit Auto-Rotate Camera</label>
+    </div>
+
+    <button id="btn-download" class="btn btn-primary">📸 Download HD City Snapshot</button>
+
+    <div class="stats">
+      <span>Buildings: <span id="stat-buildings">64</span></span>
+      <span>FPS: <span id="stat-fps">60</span></span>
+    </div>
+  </div>
+
+  <div class="hint">
+    <span>🏙️ <strong>Drag Mouse</strong> to orbit 360° around the Real-World City! <strong>Scroll Wheel</strong> to Zoom.</span>
+  </div>
+
+  <script src="js/cityTextures.js"></script>
+  <script src="js/cityBuildings.js"></script>
+  <script src="js/trafficEngine.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

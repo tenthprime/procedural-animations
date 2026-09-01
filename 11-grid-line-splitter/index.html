@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grid Line Splitter & Weaver Physics</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+</head>
+<body>
+  <div id="canvas-container"></div>
+
+  <!-- Slide-In Control Drawer Toggle Button -->
+  <button id="toggle-panel-btn" class="panel-toggle-btn" title="Toggle Controls">
+    <span id="toggle-icon">⚙️</span> Controls
+  </button>
+
+  <!-- Slide-In Control Panel Drawer -->
+  <div id="control-panel" class="panel">
+    <div class="panel-header">
+      <h2>✂️ Grid Line Splitter</h2>
+      <p class="subtitle">Dot Grid Weaving & Intersection Slicing</p>
+    </div>
+
+    <div class="control-group">
+      <label for="grid-slider">Dot Grid Size: <span id="val-grid">16</span>x16</label>
+      <input type="range" id="grid-slider" min="8" max="28" step="2" value="16">
+    </div>
+
+    <div class="control-group">
+      <label for="weaver-speed-slider">Weaver Line Speed: <span id="val-weaver">1.0</span>x</label>
+      <input type="range" id="weaver-speed-slider" min="0.2" max="3.0" step="0.1" value="1.0">
+    </div>
+
+    <div class="control-group">
+      <label for="cutter-speed-slider">Cutter Line Speed: <span id="val-cutter">1.2</span>x</label>
+      <input type="range" id="cutter-speed-slider" min="0.2" max="3.0" step="0.1" value="1.2">
+    </div>
+
+    <div class="control-group">
+      <label>Color Palette:</label>
+      <select id="select-theme">
+        <option value="cyanpink">Cyan Weaver vs. Pink Cutter</option>
+        <option value="goldviolet">Gold Weaver vs. Violet Cutter</option>
+        <option value="limeruby">Lime Weaver vs. Ruby Cutter</option>
+      </select>
+    </div>
+
+    <div class="control-group">
+      <label class="chk-label"><input type="checkbox" id="chk-sparks" checked> Collision Spark Bursts</label>
+      <label class="chk-label"><input type="checkbox" id="chk-dots" checked> Pulse Grid Dots on Touch</label>
+    </div>
+
+    <div class="btn-grid">
+      <button id="btn-reset" class="btn">Reset Lines</button>
+      <button id="btn-cut" class="btn btn-danger">Trigger Manual Cut</button>
+    </div>
+
+    <div class="stats">
+      <span>Active Line Segments: <span id="stat-lines">1</span></span>
+      <span>Cuts Performed: <span id="stat-cuts">0</span></span>
+    </div>
+  </div>
+
+  <div class="hint">
+    <span>✂️ Watch the <strong>Primary Line</strong> weave through dots! When the <strong>Secondary Cutter Line</strong> crosses, it splits in half!</span>
+  </div>
+
+  <script src="js/gridPhysics.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

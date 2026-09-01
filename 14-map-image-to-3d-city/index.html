@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map Image to 3D Real-World City & Water Engine</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Three.js & OrbitControls from CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+  <div id="canvas-container"></div>
+
+  <!-- Slide-In Control Drawer Toggle Button -->
+  <button id="toggle-panel-btn" class="panel-toggle-btn" title="Toggle Controls">
+    <span id="toggle-icon">⚙️</span> Controls
+  </button>
+
+  <!-- Slide-In Control Panel Drawer -->
+  <div id="control-panel" class="panel">
+    <div class="panel-header">
+      <h2>🗺️ Map Image → 3D City Engine</h2>
+      <p class="subtitle">Upload Any Drawn Map to Extrude 3D World</p>
+    </div>
+
+    <!-- Upload Map Image Button -->
+    <div class="control-group">
+      <label for="map-upload-input" class="upload-btn-label">
+        📁 Upload Drawn Map Image (.png/.jpg)
+      </label>
+      <input type="file" id="map-upload-input" accept="image/*" style="display: none;">
+    </div>
+
+    <div class="control-group">
+      <label>Sample Drawn Map Layouts:</label>
+      <select id="select-sample">
+        <option value="riverpeninsula">1. 🌊 Downtown River Peninsula Map</option>
+        <option value="centralpark">2. 🌲 Central Park City Grid Map</option>
+        <option value="islandbay">3. 🏖️ Coastal Island Bay Map</option>
+      </select>
+    </div>
+
+    <div class="control-group">
+      <label for="height-slider">Building Height Extrusion: <span id="val-height">1.0</span>x</label>
+      <input type="range" id="height-slider" min="0.2" max="3.0" step="0.1" value="1.0">
+    </div>
+
+    <div class="control-group">
+      <label>Camera Perspective:</label>
+      <select id="select-camera">
+        <option value="drone">🚁 3D Drone Aerial View</option>
+        <option value="street">🚶 Street Level Walker POV</option>
+      </select>
+    </div>
+
+    <div class="control-group">
+      <label class="chk-label"><input type="checkbox" id="chk-water" checked> Animated Water Body Waves</label>
+      <label class="chk-label"><input type="checkbox" id="chk-trees" checked> 3D Tree Clusters in Parks</label>
+      <label class="chk-label"><input type="checkbox" id="chk-rotate"> Orbit Auto-Rotate Camera</label>
+    </div>
+
+    <button id="btn-download" class="btn btn-primary">📸 Download 3D City Snapshot</button>
+
+    <div class="stats">
+      <span>Buildings Extruded: <span id="stat-buildings">0</span></span>
+      <span>Water Pixels: <span id="stat-water">0</span></span>
+    </div>
+  </div>
+
+  <div class="hint">
+    <span>🗺️ <strong>Upload your drawn map image</strong> or select a sample map to watch 3D Buildings, Water & Roads extrude live!</span>
+  </div>
+
+  <script src="js/mapParser.js"></script>
+  <script src="js/map3dBuilder.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

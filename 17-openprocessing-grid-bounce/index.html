@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenProcessing Elastic Grid Bounce & Squish Studio</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+</head>
+<body>
+  <div id="canvas-container"></div>
+
+  <!-- Slide-In Control Drawer Toggle Button -->
+  <button id="toggle-panel-btn" class="panel-toggle-btn" title="Toggle Controls">
+    <span id="toggle-icon">⚙️</span> Controls
+  </button>
+
+  <!-- Slide-In Control Panel Drawer -->
+  <div id="control-panel" class="panel">
+    <div class="panel-header">
+      <h2>🏀 Elastic Grid Bounce Studio</h2>
+      <p class="subtitle">OpenProcessing Squish & Lift Generative Art</p>
+    </div>
+
+    <div class="control-group">
+      <label for="grid-size-slider">Grid Size: <span id="val-grid">10</span> x <span id="val-grid-2">10</span></label>
+      <input type="range" id="grid-size-slider" min="4" max="20" step="1" value="10">
+    </div>
+
+    <div class="control-group">
+      <label>Color Palette:</label>
+      <select id="select-palette">
+        <option value="original">🎨 OpenProcessing Original</option>
+        <option value="cyber">💖 Cyberpunk Neon</option>
+        <option value="sunset">🌅 Sunset Glow</option>
+        <option value="emerald">🌿 Emerald Forest</option>
+        <option value="mono">🔳 High Contrast Mono</option>
+      </select>
+    </div>
+
+    <div class="control-group">
+      <label for="squish-slider">Squish Elasticity Ratio: <span id="val-squish">1.5</span>x</label>
+      <input type="range" id="squish-slider" min="1.0" max="2.5" step="0.1" value="1.5">
+    </div>
+
+    <div class="control-group">
+      <label for="speed-slider">Animation Cycle Speed: <span id="val-speed">80</span> frames</label>
+      <input type="range" id="speed-slider" min="30" max="150" step="5" value="80">
+    </div>
+
+    <div class="control-group">
+      <label class="chk-label"><input type="checkbox" id="chk-mirror" checked> Inverted Mirror Perspective (-0.9x)</label>
+      <label class="chk-label"><input type="checkbox" id="chk-mouse" checked> Mouse Proximity Wave Trigger</label>
+    </div>
+
+    <button id="btn-download" class="btn btn-primary">📸 Download HD Snapshot</button>
+
+    <div class="stats">
+      <span>Total Cells: <span id="stat-cells">100</span></span>
+      <span>Mirror Scale: <span id="stat-scale">-0.9x</span></span>
+    </div>
+  </div>
+
+  <div class="hint">
+    <span>🏀 Move your mouse over the grid to trigger <strong>interactive wave bounces</strong> & squishes!</span>
+  </div>
+
+  <script src="js/gridPhysics.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

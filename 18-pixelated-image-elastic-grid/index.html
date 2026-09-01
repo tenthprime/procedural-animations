@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pixelated Image & Face Elastic Grid Bounce Studio</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+  <!-- GIF Shot High-Speed Animated GIF Encoder -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gifshot/0.3.2/gifshot.min.js"></script>
+</head>
+<body>
+  <div id="canvas-container"></div>
+
+  <!-- Slide-In Control Drawer Toggle Button -->
+  <button id="toggle-panel-btn" class="panel-toggle-btn" title="Toggle Controls">
+    <span id="toggle-icon">⚙️</span> Controls
+  </button>
+
+  <!-- Slide-In Control Panel Drawer -->
+  <div id="control-panel" class="panel">
+    <div class="panel-header">
+      <h2>🖼️ Pixelated Image Elastic Grid</h2>
+      <p class="subtitle">Directional Cursor Waves & Color Tint Studio</p>
+    </div>
+
+    <!-- Upload Custom Image / Face Button -->
+    <div class="control-group">
+      <label for="img-upload-input" class="upload-btn-label">
+        📁 Upload Custom Image / Face (.png/.jpg)
+      </label>
+      <input type="file" id="img-upload-input" accept="image/*" style="display: none;">
+    </div>
+
+    <div class="control-group">
+      <label>Dot Color Tint Theme:</label>
+      <select id="select-tint">
+        <option value="original">🖼️ Original Image Colors</option>
+        <option value="cyber">💖 Cyberpunk Pink & Cyan</option>
+        <option value="gold">✨ Golden Sunlight Glow</option>
+        <option value="emerald">🌿 Emerald Forest Lime</option>
+        <option value="mono">🔳 Monochrome Silver</option>
+        <option value="custom">🎨 Custom Single Color Tint</option>
+      </select>
+    </div>
+
+    <div class="control-group" id="custom-tint-group" style="display: none;">
+      <label for="tint-picker">Custom Dot Color Picker:</label>
+      <input type="color" id="tint-picker" value="#f59e0b" style="width: 100%; height: 38px; cursor: pointer;">
+    </div>
+
+    <div class="control-group">
+      <label for="grid-size-slider">Pixel Grid Resolution: <span id="val-grid">40</span> x <span id="val-grid-2">40</span></label>
+      <input type="range" id="grid-size-slider" min="10" max="80" step="2" value="40">
+    </div>
+
+    <div class="control-group">
+      <label for="zoom-slider">Canvas Zoom Level: <span id="val-zoom">1.0</span>x</label>
+      <input type="range" id="zoom-slider" min="0.5" max="3.0" step="0.1" value="1.0">
+    </div>
+
+    <div class="control-group">
+      <label for="squish-slider">Squish Elasticity Ratio: <span id="val-squish">1.5</span>x</label>
+      <input type="range" id="squish-slider" min="1.0" max="2.5" step="0.1" value="1.5">
+    </div>
+
+    <div class="control-group">
+      <label for="speed-slider">Animation Cycle Speed: <span id="val-speed">80</span> frames</label>
+      <input type="range" id="speed-slider" min="30" max="150" step="5" value="80">
+    </div>
+
+    <div class="control-group">
+      <label class="chk-label"><input type="checkbox" id="chk-mirror"> Inverted Mirror Perspective (-0.9x)</label>
+      <label class="chk-label"><input type="checkbox" id="chk-mouse" checked> Directional Cursor Wave Push</label>
+    </div>
+
+    <button id="btn-gif" class="btn btn-gif">🎞️ Download Animated GIF</button>
+    <button id="btn-download" class="btn btn-primary">📸 Download HD PNG Snapshot</button>
+
+    <div class="stats">
+      <span>Pixel Cells: <span id="stat-cells">1600</span></span>
+      <span>Wave Physics: <span id="stat-wave">Directional Push</span></span>
+    </div>
+  </div>
+
+  <div class="hint">
+    <span>🌊 Move your mouse across the image to <strong>push dots in the direction of your cursor</strong>!</span>
+  </div>
+
+  <script src="js/pixelImageParser.js"></script>
+  <script src="js/gridPhysics.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
