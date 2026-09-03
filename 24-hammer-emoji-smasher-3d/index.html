@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D POV Hammer Emoji Smasher Game</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gifshot/0.3.2/gifshot.min.js"></script>
+</head>
+<body>
+  <div id="canvas-container"></div>
+
+  <!-- Arcade Game HUD Header -->
+  <div class="game-hud">
+    <div class="hud-card">
+      <span class="hud-label">SCORE</span>
+      <span id="hud-score" class="hud-value">000000</span>
+    </div>
+    <div class="hud-card highlight">
+      <span class="hud-label">SMASHED</span>
+      <span id="hud-smashed" class="hud-value">0 / 100</span>
+    </div>
+    <div class="hud-card combo">
+      <span class="hud-label">COMBO</span>
+      <span id="hud-combo" class="hud-value">1x</span>
+    </div>
+  </div>
+
+  <!-- Slide-In Control Drawer Toggle Button -->
+  <button id="toggle-panel-btn" class="panel-toggle-btn" title="Toggle Controls">
+    <span id="toggle-icon">⚙️</span> Controls
+  </button>
+
+  <!-- Slide-In Control Panel Drawer -->
+  <div id="control-panel" class="panel">
+    <div class="panel-header">
+      <h2>🔨 Hammer Emoji Smasher 3D</h2>
+      <p class="subtitle">100 Emoji Targets & Shatter Physics</p>
+    </div>
+
+    <!-- Restart Game / Respawn Emoji Button -->
+    <button id="btn-respawn" class="btn btn-respawn">🔄 Respawn Current Emoji</button>
+    <button id="btn-reset-game" class="btn btn-restart">🏆 Reset Score & Targets (0/100)</button>
+
+    <div class="control-group">
+      <label>Target Emoji Selector (100 Emojis):</label>
+      <select id="select-emoji-target"></select>
+    </div>
+
+    <div class="control-group">
+      <label>Game Mode:</label>
+      <select id="select-game-mode">
+        <option value="pedestal">🔨 Endless Emoji Smash Pedestal</option>
+        <option value="blitz">⏱️ 60-Second Time Attack Blitz</option>
+        <option value="conveyor">🚀 Moving Conveyor Target Spawner</option>
+      </select>
+    </div>
+
+    <div class="control-group">
+      <label for="hammer-size-slider">POV Hammer Size: <span id="val-hammer">0.6</span>x</label>
+      <input type="range" id="hammer-size-slider" min="0.3" max="1.5" step="0.1" value="0.6">
+    </div>
+
+    <div class="control-group">
+      <label for="shatter-force-slider">Explosion Shatter Force: <span id="val-shatter">1.8</span>x</label>
+      <input type="range" id="shatter-force-slider" min="0.5" max="3.5" step="0.2" value="1.8">
+    </div>
+
+    <div class="control-group">
+      <label class="chk-label"><input type="checkbox" id="chk-audio" checked> Procedural Impact Sound FX</label>
+      <label class="chk-label"><input type="checkbox" id="chk-sparks" checked> Hammer Hit Spark Particles</label>
+    </div>
+
+    <button id="btn-gif" class="btn btn-gif">🎞️ Download Animated GIF</button>
+    <button id="btn-download" class="btn btn-primary">📸 Download HD PNG</button>
+
+    <div class="stats">
+      <span>Target: <span id="stat-target">😃 Smiley</span></span>
+      <span>Debris Count: <span id="stat-debris">0</span></span>
+    </div>
+  </div>
+
+  <div class="hint">
+    <span>🔨 Click anywhere to <strong>SWING HAMMER & SMASH EMOJI</strong> into 100% exploding pieces!</span>
+  </div>
+
+  <script src="js/audioEngine.js"></script>
+  <script src="js/emoji3dLibrary.js"></script>
+  <script src="js/shatterPhysics.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

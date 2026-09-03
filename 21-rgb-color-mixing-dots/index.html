@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Additive RGB Color Mixing Growing Dot Grid Studio</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gifshot/0.3.2/gifshot.min.js"></script>
+</head>
+<body>
+  <div id="canvas-container"></div>
+
+  <!-- Slide-In Control Drawer Toggle Button -->
+  <button id="toggle-panel-btn" class="panel-toggle-btn" title="Toggle Controls">
+    <span id="toggle-icon">⚙️</span> Controls
+  </button>
+
+  <!-- Slide-In Control Panel Drawer -->
+  <div id="control-panel" class="panel">
+    <div class="panel-header">
+      <h2>🔴🟢🔵 Additive RGB Color Studio</h2>
+      <p class="subtitle">Tiny Pinprick Dots to Overlapping Color Synthesis</p>
+    </div>
+
+    <!-- Restart / Refresh Growth Cycle Button -->
+    <button id="btn-restart" class="btn btn-restart">🔄 Restart Growth Cycle</button>
+
+    <div class="control-group">
+      <label>Blend Mode Mechanics:</label>
+      <select id="select-blend">
+        <option value="add">🔴🟢🔵 Additive RGB (ADD / Screen)</option>
+        <option value="multiply">🩵💖🟡 Subtractive CMYK (Multiply)</option>
+        <option value="difference">⚡ High Contrast Difference</option>
+        <option value="exclusion">✨ Radiant Exclusion</option>
+      </select>
+    </div>
+
+    <div class="control-group">
+      <label>Color Palette Triad:</label>
+      <select id="select-palette">
+        <option value="rgb">🔴🟢🔵 RGB Primary (Red, Green, Blue)</option>
+        <option value="cmyk">🩵💖🟡 CMYK Process (Cyan, Magenta, Yellow)</option>
+        <option value="rainbow">🌈 Prismatic Rainbow Spectrum</option>
+        <option value="cyber">💖 Cyberpunk Neon (Pink, Cyan, Yellow)</option>
+      </select>
+    </div>
+
+    <div class="control-group">
+      <label for="grid-size-slider">Grid Matrix Size: <span id="val-grid">12</span> x <span id="val-grid-2">12</span></label>
+      <input type="range" id="grid-size-slider" min="6" max="30" step="1" value="12">
+    </div>
+
+    <div class="control-group">
+      <label for="radius-slider">Max Overlap Radius: <span id="val-radius">3.0</span>x</label>
+      <input type="range" id="radius-slider" min="1.5" max="5.0" step="0.1" value="3.0">
+    </div>
+
+    <div class="control-group">
+      <label for="speed-slider">Slow Growth Speed: <span id="val-speed">1.0</span>x</label>
+      <input type="range" id="speed-slider" min="0.2" max="3.0" step="0.1" value="1.0">
+    </div>
+
+    <div class="control-group">
+      <label class="chk-label"><input type="checkbox" id="chk-auto-loop" checked> Auto-Loop Growth Cycle</label>
+      <label class="chk-label"><input type="checkbox" id="chk-mouse" checked> Mouse Proximity Growth Ripple</label>
+    </div>
+
+    <button id="btn-gif" class="btn btn-gif">🎞️ Download Animated GIF</button>
+    <button id="btn-download" class="btn btn-primary">📸 Download HD PNG</button>
+
+    <div class="stats">
+      <span>Dots: <span id="stat-dots">144</span></span>
+      <span>Growth: <span id="stat-progress">0%</span></span>
+    </div>
+  </div>
+
+  <div class="hint">
+    <span>🔴🟢🔵 Dots start as <strong>tiny pinpricks</strong> and slowly expand upwards into overlapping colors! Click 🔄 <strong>Restart</strong> anytime!</span>
+  </div>
+
+  <script src="js/colorPhysics.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

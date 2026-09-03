@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quantum Hyper-Dimensional Face & Cosmic Voxel Galaxy Studio</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gifshot/0.3.2/gifshot.min.js"></script>
+</head>
+<body>
+  <div id="canvas-container"></div>
+
+  <!-- Slide-In Control Drawer Toggle Button -->
+  <button id="toggle-panel-btn" class="panel-toggle-btn" title="Toggle Controls">
+    <span id="toggle-icon">⚙️</span> Controls
+  </button>
+
+  <!-- Slide-In Control Panel Drawer -->
+  <div id="control-panel" class="panel">
+    <div class="panel-header">
+      <h2>🌌 Quantum Hyper-Dimensional Studio</h2>
+      <p class="subtitle">Black Hole Vortex, Supernovas & 3D Voxel Galaxy</p>
+    </div>
+
+    <!-- Uploaded Photo Real Image Preview Box -->
+    <div class="control-group">
+      <label>🖼️ Real Uploaded Photo Preview:</label>
+      <div class="img-preview-box">
+        <img id="real-photo-preview" src="" alt="Real Uploaded Photo Preview">
+      </div>
+      <button id="btn-toggle-photo-overlay" class="btn btn-photo-overlay">👁️ Toggle 3D Photo Overlay</button>
+    </div>
+
+    <!-- Upload Custom Image / Face Button -->
+    <div class="control-group">
+      <label for="img-upload-input" class="upload-btn-label">
+        📁 Upload Image / Face (.png/.jpg)
+      </label>
+      <input type="file" id="img-upload-input" accept="image/*" style="display: none;">
+    </div>
+
+    <!-- Trigger Explosion / Vortex Re-Assembly Button -->
+    <button id="btn-trigger-detonate" class="btn btn-detonate">💥 Detonate Supernova Explosion</button>
+
+    <div class="control-group">
+      <label>Spiral Movement Pattern:</label>
+      <select id="select-spiral-pattern">
+        <option value="harmonic">🌀 1. Harmonic Spiral Vortex</option>
+        <option value="helix">☯️ 2. Dual Counter-Rotating Double Helix</option>
+        <option value="breathing">💓 3. Quantum Orbital Breathing Pulse</option>
+        <option value="stringwave">〰️ 4. Cosmic String Wave Undulation</option>
+      </select>
+    </div>
+
+    <div class="control-group">
+      <label>Dimensional Physics Mode:</label>
+      <select id="select-mode">
+        <option value="vortex">🌌 Cosmic Black Hole Vortex (Disassemble & Re-assemble)</option>
+        <option value="wave">⚡ Hyper-Dimensional Wave Matrix</option>
+        <option value="supernova">💥 Supernova Stardust Explosion</option>
+        <option value="hologram">🔮 Bioluminescent Hologram Scanner</option>
+      </select>
+    </div>
+
+    <div class="control-group">
+      <label for="speed-slider">Vortex Movement Speed: <span id="val-speed">0.25</span>x (Slower & Graceful)</label>
+      <input type="range" id="speed-slider" min="0.05" max="1.5" step="0.05" value="0.25">
+    </div>
+
+    <div class="control-group">
+      <label for="vortex-force-slider">Spiral Expansion Force: <span id="val-vortex">1.5</span>x</label>
+      <input type="range" id="vortex-force-slider" min="0.2" max="4.0" step="0.2" value="1.5">
+    </div>
+
+    <div class="control-group">
+      <label>Quantum Particle Shape:</label>
+      <select id="select-shape">
+        <option value="cube">🧊 3D Quantum Voxels</option>
+        <option value="orb">🟢 Glowing Light Orbs</option>
+        <option value="pyramid">🔺 Hyper-Pyramids</option>
+        <option value="dust">✨ Star Dust Particles</option>
+      </select>
+    </div>
+
+    <div class="control-group">
+      <label for="grid-size-slider">Quantum Resolution: <span id="val-grid">45</span> x <span id="val-grid-2">45</span></label>
+      <input type="range" id="grid-size-slider" min="20" max="80" step="5" value="45">
+    </div>
+
+    <div class="control-group">
+      <label class="chk-label"><input type="checkbox" id="chk-auto-rotate" checked> 360° Auto Camera Orbit</label>
+      <label class="chk-label"><input type="checkbox" id="chk-singularity" checked> Central Gravitational Singularity</label>
+    </div>
+
+    <button id="btn-gif" class="btn btn-gif">🎞️ Download Animated GIF</button>
+    <button id="btn-download" class="btn btn-primary">📸 Download HD PNG</button>
+
+    <div class="stats">
+      <span>Quantum Particles: <span id="stat-particles">2025</span></span>
+      <span>Status: <span id="stat-status">Accretion Disk Active</span></span>
+    </div>
+  </div>
+
+  <div class="hint">
+    <span>🌌 Click canvas to trigger <strong>supernova particle explosions</strong> & 360° black hole vortexes!</span>
+  </div>
+
+  <script src="js/quantumParser.js"></script>
+  <script src="js/hyperEngine.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

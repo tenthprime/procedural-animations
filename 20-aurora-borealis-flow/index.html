@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bioluminescent Aurora Lights Flow Studio</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gifshot/0.3.2/gifshot.min.js"></script>
+</head>
+<body>
+  <div id="canvas-container"></div>
+
+  <!-- Slide-In Control Drawer Toggle Button -->
+  <button id="toggle-panel-btn" class="panel-toggle-btn" title="Toggle Controls">
+    <span id="toggle-icon">⚙️</span> Controls
+  </button>
+
+  <!-- Slide-In Control Panel Drawer -->
+  <div id="control-panel" class="panel">
+    <div class="panel-header">
+      <h2>🌌 Aurora Lights Flow Studio</h2>
+      <p class="subtitle">Procedural fBm Celestial Aurora & Starfield</p>
+    </div>
+
+    <div class="control-group">
+      <label>Aurora Color Theme:</label>
+      <select id="select-theme">
+        <option value="emerald">💚 Emerald Dream (Green & Teal)</option>
+        <option value="violet">💜 Violet Nebula (Purple & Pink)</option>
+        <option value="cyan">💙 Arctic Cyan (Electric Ice Blue)</option>
+        <option value="solar">🌈 Solar Flare Storm (Rainbow)</option>
+      </select>
+    </div>
+
+    <div class="control-group">
+      <label for="speed-slider">Flow Velocity Speed: <span id="val-speed">1.0</span>x</label>
+      <input type="range" id="speed-slider" min="0.2" max="3.0" step="0.1" value="1.0">
+    </div>
+
+    <div class="control-group">
+      <label for="curtain-slider">Aurora Curtains Count: <span id="val-curtains">4</span></label>
+      <input type="range" id="curtain-slider" min="2" max="8" step="1" value="4">
+    </div>
+
+    <div class="control-group">
+      <label for="wave-slider">Ray Turbulence: <span id="val-wave">1.2</span>x</label>
+      <input type="range" id="wave-slider" min="0.5" max="2.5" step="0.1" value="1.2">
+    </div>
+
+    <div class="control-group">
+      <label class="chk-label"><input type="checkbox" id="chk-stars" checked> Twinkling Celestial Starfield</label>
+      <label class="chk-label"><input type="checkbox" id="chk-mountains" checked> Silhouetted Mountain Horizon</label>
+      <label class="chk-label"><input type="checkbox" id="chk-mouse-wind" checked> Interactive Mouse Wind Drag</label>
+    </div>
+
+    <button id="btn-gif" class="btn btn-gif">🎞️ Download Animated GIF</button>
+    <button id="btn-download" class="btn btn-primary">📸 Download HD PNG</button>
+
+    <div class="stats">
+      <span>Stars: <span id="stat-stars">300</span></span>
+      <span>Aurora Status: <span id="stat-status">Flowing</span></span>
+    </div>
+  </div>
+
+  <div class="hint">
+    <span>🌌 Move mouse across night sky to drag <strong>fluid wind forces</strong> through the aurora lights!</span>
+  </div>
+
+  <script src="js/auroraShader.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

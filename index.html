@@ -15,7 +15,7 @@
         <span class="logo-icon">three.js</span>
         <div class="brand-text">
           <h1>PROCEDURAL ANIMATIONS</h1>
-          <span class="sub-brand">20 Creative Coding & Shader Projects</span>
+          <span class="sub-brand">26 Creative Coding & Shader Projects</span>
         </div>
       </button>
     </div>
@@ -23,53 +23,59 @@
     <!-- Search Input Bar (threejs.org Style) -->
     <div class="search-box">
       <span class="search-icon">🔍</span>
-      <input type="text" id="search-input" placeholder="Search 20 projects (e.g. wavy, structure, pixel, face, image, bounce)...">
+      <input type="text" id="search-input" placeholder="Search 26 projects (e.g. quantum, hyper, face, vortex, black hole, supernova, 3d, voxels)...">
     </div>
 
     <!-- Category Filter Pills -->
     <div class="category-pills">
-      <button class="pill active" data-cat="all">All (20)</button>
-      <button class="pill" data-cat="math">📐 Math & Lines</button>
+      <button class="pill active" data-cat="all">All (26)</button>
       <button class="pill" data-cat="game">🎮 Games & 3D</button>
-      <button class="pill" data-cat="sea">🌊 Deep Sea</button>
+      <button class="pill" data-cat="math">📐 Math & Color</button>
+      <button class="pill" data-cat="sea">🌊 Sky & Shaders</button>
     </div>
 
     <!-- Clean Project Dropdown Selector -->
     <div class="selector-dropdown">
       <button id="btn-select-trigger" class="dropdown-trigger">
-        <span id="active-sketch-title">🌊 20. Procedural Wavy Structure Studio</span>
+        <span id="active-sketch-title">🌌 26. Quantum Hyper-Dimensional Face & Cosmic Voxel Galaxy Studio</span>
         <span class="arrow-icon">▾</span>
       </button>
 
       <!-- Custom Floating Dropdown Menu -->
       <div id="dropdown-menu" class="dropdown-menu">
-        <div class="dropdown-header">Select Project (20 Sketches)</div>
+        <div class="dropdown-header">Select Project (26 Sketches)</div>
         <div class="dropdown-list">
-          <div class="dropdown-category">📐 Math & Art</div>
-          <button class="dropdown-item" data-index="0">🌊 20. Procedural Wavy Structure Studio</button>
-          <button class="dropdown-item" data-index="1">🖼️ 19. Pixelated Image Elastic Grid</button>
-          <button class="dropdown-item" data-index="2">🏀 18. OpenProcessing Elastic Grid Bounce</button>
-          <button class="dropdown-item" data-index="3">✍️ 17. Cursive Name Particle Morphing</button>
-          <button class="dropdown-item" data-index="4">🌀 12. Fibonacci Golden Spiral</button>
-          <button class="dropdown-item" data-index="5">✂️ 11. Grid Line Splitter & Weaver</button>
-          <button class="dropdown-item" data-index="6">✏️ 10. Interactive Draw-to-Generate</button>
-          <button class="dropdown-item" data-index="7">⚡ 09. Infinite Glowing GLSL Lines</button>
+          <div class="dropdown-category">🎮 Games & 3D WebGL</div>
+          <button class="dropdown-item" data-index="0">🌌 26. Quantum Hyper-Dimensional Face Studio</button>
+          <button class="dropdown-item" data-index="1">🔨 25. 3D POV Hammer Emoji Smasher Game</button>
+          <button class="dropdown-item" data-index="2">🏎️ 16. Rogue Red Car Smasher</button>
+          <button class="dropdown-item" data-index="3">🗺️ 15. Map Image → 3D City & Water</button>
+          <button class="dropdown-item" data-index="4">🏙️ 14. Three.js Real-World City & Traffic</button>
+          <button class="dropdown-item" data-index="5">🧊 24. Three.js 3D Volumetric Voxel Cube Studio</button>
+          <button class="dropdown-item" data-index="6">🧊 23. Three.js 3D Image-to-Pixel Art Studio</button>
+          <button class="dropdown-item" data-index="7">🏖️ 08. Three.js Ocean Beach & Waves</button>
+          <button class="dropdown-item" data-index="8">🦉 07. Celestial 3D Owl & Tree Perch</button>
+          <button class="dropdown-item" data-index="9">🌲 05. Endless 3D POV Forest</button>
 
-          <div class="dropdown-category">🎮 Arcade Games & 3D</div>
-          <button class="dropdown-item" data-index="8">🏎️ 16. Rogue Red Car Smasher</button>
-          <button class="dropdown-item" data-index="9">🗺️ 15. Map Image → 3D City & Water</button>
-          <button class="dropdown-item" data-index="10">🏙️ 14. Three.js Real-World City & Traffic</button>
-          <button class="dropdown-item" data-index="11">🏖️ 08. Three.js Ocean Beach & Waves</button>
-          <button class="dropdown-item" data-index="12">🦉 07. Celestial 3D Owl & Tree Perch</button>
-          <button class="dropdown-item" data-index="13">🧊 06. GLACIER - The Living Arctic</button>
-          <button class="dropdown-item" data-index="14">🌲 05. Endless 3D POV Forest</button>
+          <div class="dropdown-category">📐 Math & Color Art</div>
+          <button class="dropdown-item" data-index="10">🔴🟢🔵 22. Additive RGB Color Mixing Growing Dot Grid</button>
+          <button class="dropdown-item" data-index="11">🌊 20. Procedural Wavy Structure Studio</button>
+          <button class="dropdown-item" data-index="12">🖼️ 19. Pixelated Image Elastic Grid</button>
+          <button class="dropdown-item" data-index="13">🏀 18. OpenProcessing Elastic Grid Bounce</button>
+          <button class="dropdown-item" data-index="14">✍️ 17. Cursive Name Particle Morphing</button>
+          <button class="dropdown-item" data-index="15">🌀 12. Fibonacci Golden Spiral</button>
+          <button class="dropdown-item" data-index="16">✂️ 11. Grid Line Splitter & Weaver</button>
+          <button class="dropdown-item" data-index="17">✏️ 10. Interactive Draw-to-Generate</button>
+          <button class="dropdown-item" data-index="18">⚡ 09. Infinite Glowing GLSL Lines</button>
 
-          <div class="dropdown-category">🌊 Deep Sea & Shaders</div>
-          <button class="dropdown-item" data-index="15">👼 01. Sea Angels Flocking & Feeding</button>
-          <button class="dropdown-item" data-index="16">🌀 02. Okazz Constrain() Lab</button>
-          <button class="dropdown-item" data-index="17">🌊 03. ABYSSAL - The Living Deep</button>
-          <button class="dropdown-item" data-index="18">✨ 04. #つぶやきGLSL Studio</button>
-          <button class="dropdown-item" data-index="19">🐠 13. Combined Deep Sea Aquarium</button>
+          <div class="dropdown-category">🌊 Sky & Shaders</div>
+          <button class="dropdown-item" data-index="19">🌌 21. Bioluminescent Aurora Lights Flow</button>
+          <button class="dropdown-item" data-index="20">🧊 06. GLACIER - The Living Arctic</button>
+          <button class="dropdown-item" data-index="21">✨ 04. #つぶやきGLSL Studio</button>
+          <button class="dropdown-item" data-index="22">🌊 03. ABYSSAL - The Living Deep</button>
+          <button class="dropdown-item" data-index="23">👼 01. Sea Angels Flocking & Feeding</button>
+          <button class="dropdown-item" data-index="24">🐠 13. Combined Deep Sea Aquarium</button>
+          <button class="dropdown-item" data-index="25">🌀 02. Okazz Constrain() Lab</button>
         </div>
       </div>
     </div>
@@ -87,62 +93,42 @@
   <div id="gallery-view" class="gallery-container open">
     <div class="gallery-header">
       <h2>three.js / procedural animations</h2>
-      <p>Interactive 3D WebGL, Wavy Structure Art, Arcade Games & Creative Coding Showcase</p>
+      <p>Interactive 3D WebGL Quantum Face Galaxies, Black Hole Vortexes, Voxel Cubes & Creative Coding</p>
     </div>
 
     <div class="card-grid" id="card-grid">
-      <!-- 20. Procedural Wavy Structure Studio -->
-      <div class="card-tile" data-cat="math" data-index="0" data-thumb="wavy">
-        <div class="tile-thumb-container"><img class="tile-img" id="img-wavy" alt="Wavy Structure Studio"></div>
+      <!-- 26. Quantum Hyper-Dimensional Face Studio -->
+      <div class="card-tile" data-cat="game" data-index="0" data-thumb="quantum">
+        <div class="tile-thumb-container"><img class="tile-img" id="img-quantum" alt="Quantum Hyper-Dimensional Face"></div>
         <div class="tile-info">
-          <span class="tag">WAVY STRUCTURE</span>
-          <h3>🌊 20. Procedural Wavy Structure Studio</h3>
-          <p>Amplifies diagonal wave bands, concentric ripples, perlin noise fluid vortex, wave crest glowing highlights & mouse wave splashes.</p>
+          <span class="tag">QUANTUM VOXEL GALAXY</span>
+          <h3>🌌 26. Quantum Hyper-Dimensional Face Studio</h3>
+          <p>Disassembles uploaded faces into swirling cosmic black hole accretion disks, supernova explosions & 4D wave matrices.</p>
         </div>
       </div>
 
-      <!-- 19. Pixelated Image Elastic Grid -->
-      <div class="card-tile" data-cat="math" data-index="1" data-thumb="pixel">
-        <div class="tile-thumb-container"><img class="tile-img" id="img-pixel" alt="Pixelated Image Elastic Grid"></div>
+      <!-- 25. 3D POV Hammer Emoji Smasher Game -->
+      <div class="card-tile" data-cat="game" data-index="1" data-thumb="hammer">
+        <div class="tile-thumb-container"><img class="tile-img" id="img-hammer" alt="3D POV Hammer Emoji Smasher"></div>
         <div class="tile-info">
-          <span class="tag">PIXELATED ART</span>
-          <h3>🖼️ 19. Pixelated Image Elastic Grid</h3>
-          <p>Samples pixel colors from uploaded face & artwork images across an N x N grid with OpenProcessing squish physics & mouse ripples.</p>
-        </div>
-      </div>
-
-      <!-- 18. OpenProcessing Elastic Grid Bounce -->
-      <div class="card-tile" data-cat="math" data-index="2" data-thumb="bounce">
-        <div class="tile-thumb-container"><img class="tile-img" id="img-bounce" alt="OpenProcessing Elastic Grid Bounce"></div>
-        <div class="tile-info">
-          <span class="tag">GENERATIVE ART</span>
-          <h3>🏀 18. OpenProcessing Elastic Grid Bounce</h3>
-          <p>Mirrored inverted cell grid with easeInOutQuart ball lift physics, squish/stretch deformation & interactive mouse wave triggers.</p>
-        </div>
-      </div>
-
-      <!-- 17. Cursive Name Particle Morphing -->
-      <div class="card-tile" data-cat="math" data-index="3" data-thumb="cursive">
-        <div class="tile-thumb-container"><img class="tile-img" id="img-cursive" alt="Cursive Name Particle Morph"></div>
-        <div class="tile-info">
-          <span class="tag">PARTICLE MORPHING</span>
-          <h3>✍️ 17. Cursive Name Particle Morphing</h3>
-          <p>Colorful dots stream from all sides, collide into connected lines, and morph into any custom typed name in glowing cursive script.</p>
+          <span class="tag">3D ARCADE GAME</span>
+          <h3>🔨 25. 3D POV Hammer Emoji Smasher Game</h3>
+          <p>Swing a First-Person POV 3D Hammer to smash & shatter 100 procedural 3D Emoji targets into exploding polygon debris.</p>
         </div>
       </div>
 
       <!-- 16. Rogue Red Car Smasher -->
-      <div class="card-tile" data-cat="game" data-index="4" data-thumb="car">
+      <div class="card-tile" data-cat="game" data-index="2" data-thumb="car">
         <div class="tile-thumb-container"><img class="tile-img" id="img-car" alt="Rogue Red Car Smasher"></div>
         <div class="tile-info">
           <span class="tag">3D ARCADE GAME</span>
           <h3>🏎️ 16. Rogue Red Car Smasher</h3>
-          <p>Drive an invincible Rogue Red Car, smashing through city skyscrapers & dense forests with mesh dent physics & ragdoll impacts.</p>
+          <p>Drive an invincible Rogue Red Car, smashing through city skyscrapers & dense forests.</p>
         </div>
       </div>
 
       <!-- 15. Map Image to 3D City -->
-      <div class="card-tile" data-cat="game" data-index="5" data-thumb="map3d">
+      <div class="card-tile" data-cat="game" data-index="3" data-thumb="map3d">
         <div class="tile-thumb-container"><img class="tile-img" id="img-map3d" alt="Map to 3D City"></div>
         <div class="tile-info">
           <span class="tag">3D & MAP GENERATOR</span>
@@ -152,12 +138,32 @@
       </div>
 
       <!-- 14. Real-World 3D City -->
-      <div class="card-tile" data-cat="game" data-index="6" data-thumb="city3d">
+      <div class="card-tile" data-cat="game" data-index="4" data-thumb="city3d">
         <div class="tile-thumb-container"><img class="tile-img" id="img-city3d" alt="Real-World City"></div>
         <div class="tile-info">
           <span class="tag">3D & REALISM</span>
           <h3>🏙️ 14. Three.js Real-World City & Traffic</h3>
           <p>Textured skyscrapers, asphalt roads, lane markings, street lamps & live car traffic.</p>
+        </div>
+      </div>
+
+      <!-- 24. Three.js 3D Volumetric Voxel Cube Studio -->
+      <div class="card-tile" data-cat="game" data-index="5" data-thumb="cube3d">
+        <div class="tile-thumb-container"><img class="tile-img" id="img-cube3d" alt="Three.js 3D Volumetric Voxel Cube"></div>
+        <div class="tile-info">
+          <span class="tag">THREE.JS 3D CUBE</span>
+          <h3>🧊 24. Three.js 3D Volumetric Voxel Cube Studio</h3>
+          <p>Extrudes photos into full 3D solid cube monoliths with Z-axis depth layers & 3D terrain relief.</p>
+        </div>
+      </div>
+
+      <!-- 23. Three.js 3D Image-to-Pixel Art Studio -->
+      <div class="card-tile" data-cat="game" data-index="6" data-thumb="pixel3d">
+        <div class="tile-thumb-container"><img class="tile-img" id="img-pixel3d" alt="Three.js 3D Image Pixel Art"></div>
+        <div class="tile-info">
+          <span class="tag">THREE.JS 3D</span>
+          <h3>🧊 23. Three.js 3D Image-to-Pixel Art Studio</h3>
+          <p>Instantly voxelizes uploaded photos into 3D kinetic dots, spheres & voxels with 3D wave displacement.</p>
         </div>
       </div>
 
@@ -181,18 +187,8 @@
         </div>
       </div>
 
-      <!-- 06. GLACIER Arctic -->
-      <div class="card-tile" data-cat="game" data-index="9" data-thumb="glacier">
-        <div class="tile-thumb-container"><img class="tile-img" id="img-glacier" alt="GLACIER Arctic"></div>
-        <div class="tile-info">
-          <span class="tag">3D & ARCTIC</span>
-          <h3>🧊 06. GLACIER - The Living Arctic</h3>
-          <p>100% procedural 3D glacier cliffs, Subsurface Scattering translucent ice & Aurora sky.</p>
-        </div>
-      </div>
-
       <!-- 05. Endless POV Forest -->
-      <div class="card-tile" data-cat="game" data-index="10" data-thumb="forest">
+      <div class="card-tile" data-cat="game" data-index="9" data-thumb="forest">
         <div class="tile-thumb-container"><img class="tile-img" id="img-forest" alt="Endless POV Forest"></div>
         <div class="tile-info">
           <span class="tag">3D & POV</span>
@@ -201,8 +197,58 @@
         </div>
       </div>
 
+      <!-- 22. Additive RGB Color Mixing Growing Dot Grid -->
+      <div class="card-tile" data-cat="math" data-index="10" data-thumb="rgb">
+        <div class="tile-thumb-container"><img class="tile-img" id="img-rgb" alt="Additive RGB Color Mixing Dots"></div>
+        <div class="tile-info">
+          <span class="tag">COLOR & PHYSICS</span>
+          <h3>🔴🟢🔵 22. Additive RGB Color Mixing Growing Dot Grid</h3>
+          <p>Grid of expanding growing dots whose overlapping circles synthesize Yellow, Magenta, Cyan & White.</p>
+        </div>
+      </div>
+
+      <!-- 20. Procedural Wavy Structure Studio -->
+      <div class="card-tile" data-cat="math" data-index="11" data-thumb="wavy">
+        <div class="tile-thumb-container"><img class="tile-img" id="img-wavy" alt="Wavy Structure Studio"></div>
+        <div class="tile-info">
+          <span class="tag">WAVY STRUCTURE</span>
+          <h3>🌊 20. Procedural Wavy Structure Studio</h3>
+          <p>Amplifies diagonal wave bands, concentric ripples, perlin noise fluid vortex & mouse wave splashes.</p>
+        </div>
+      </div>
+
+      <!-- 19. Pixelated Image Elastic Grid -->
+      <div class="card-tile" data-cat="math" data-index="12" data-thumb="pixel">
+        <div class="tile-thumb-container"><img class="tile-img" id="img-pixel" alt="Pixelated Image Elastic Grid"></div>
+        <div class="tile-info">
+          <span class="tag">PIXELATED ART</span>
+          <h3>🖼️ 19. Pixelated Image Elastic Grid</h3>
+          <p>Samples pixel colors from uploaded face & artwork images across an N x N grid with OpenProcessing squish physics.</p>
+        </div>
+      </div>
+
+      <!-- 18. OpenProcessing Elastic Grid Bounce -->
+      <div class="card-tile" data-cat="math" data-index="13" data-thumb="bounce">
+        <div class="tile-thumb-container"><img class="tile-img" id="img-bounce" alt="OpenProcessing Elastic Grid Bounce"></div>
+        <div class="tile-info">
+          <span class="tag">GENERATIVE ART</span>
+          <h3>🏀 18. OpenProcessing Elastic Grid Bounce</h3>
+          <p>Mirrored inverted cell grid with easeInOutQuart ball lift physics & squish/stretch deformation.</p>
+        </div>
+      </div>
+
+      <!-- 17. Cursive Name Particle Morphing -->
+      <div class="card-tile" data-cat="math" data-index="14" data-thumb="cursive">
+        <div class="tile-thumb-container"><img class="tile-img" id="img-cursive" alt="Cursive Name Particle Morph"></div>
+        <div class="tile-info">
+          <span class="tag">PARTICLE MORPHING</span>
+          <h3>✍️ 17. Cursive Name Particle Morphing</h3>
+          <p>Colorful dots stream from all sides, collide into connected lines, and morph into any custom typed name.</p>
+        </div>
+      </div>
+
       <!-- 12. Fibonacci Spiral -->
-      <div class="card-tile" data-cat="math" data-index="11" data-thumb="fibonacci">
+      <div class="card-tile" data-cat="math" data-index="15" data-thumb="fibonacci">
         <div class="tile-thumb-container"><img class="tile-img" id="img-fibonacci" alt="Fibonacci Spiral"></div>
         <div class="tile-info">
           <span class="tag">MATH & LINES</span>
@@ -212,7 +258,7 @@
       </div>
 
       <!-- 11. Grid Line Splitter -->
-      <div class="card-tile" data-cat="math" data-index="12" data-thumb="grid">
+      <div class="card-tile" data-cat="math" data-index="16" data-thumb="grid">
         <div class="tile-thumb-container"><img class="tile-img" id="img-grid" alt="Grid Line Splitter"></div>
         <div class="tile-info">
           <span class="tag">MATH & LINES</span>
@@ -222,7 +268,7 @@
       </div>
 
       <!-- 10. Draw to Generate -->
-      <div class="card-tile" data-cat="math" data-index="13" data-thumb="draw">
+      <div class="card-tile" data-cat="math" data-index="17" data-thumb="draw">
         <div class="tile-thumb-container"><img class="tile-img" id="img-draw" alt="Draw to Generate"></div>
         <div class="tile-info">
           <span class="tag">MATH & LINES</span>
@@ -232,7 +278,7 @@
       </div>
 
       <!-- 09. Infinite GLSL Lines -->
-      <div class="card-tile" data-cat="math" data-index="14" data-thumb="glsl">
+      <div class="card-tile" data-cat="math" data-index="18" data-thumb="glsl">
         <div class="tile-thumb-container"><img class="tile-img" id="img-glsl" alt="Infinite GLSL Lines"></div>
         <div class="tile-info">
           <span class="tag">MATH & SHADERS</span>
@@ -241,38 +287,28 @@
         </div>
       </div>
 
-      <!-- 01. Sea Angels -->
-      <div class="card-tile" data-cat="sea" data-index="15" data-thumb="angel">
-        <div class="tile-thumb-container"><img class="tile-img" id="img-angel" alt="Sea Angels"></div>
+      <!-- 21. Bioluminescent Aurora Lights Flow -->
+      <div class="card-tile" data-cat="sea" data-index="19" data-thumb="aurora">
+        <div class="tile-thumb-container"><img class="tile-img" id="img-aurora" alt="Aurora Lights Flow"></div>
         <div class="tile-info">
-          <span class="tag">DEEP SEA</span>
-          <h3>👼 01. Sea Angels Flocking & Feeding</h3>
-          <p>Clione limacina boids, high-speed food pursuit sprint AI & dynamic eating growth mechanics.</p>
+          <span class="tag">SKY & SHADERS</span>
+          <h3>🌌 21. Bioluminescent Aurora Lights Flow</h3>
+          <p>Layered fractional Brownian motion (fBm) noise ribbons, starry arctic night sky & mountain silhouette.</p>
         </div>
       </div>
 
-      <!-- 02. Okazz Wigglers -->
-      <div class="card-tile" data-cat="sea" data-index="16" data-thumb="okazz">
-        <div class="tile-thumb-container"><img class="tile-img" id="img-okazz" alt="Okazz Wigglers"></div>
+      <!-- 06. GLACIER Arctic -->
+      <div class="card-tile" data-cat="sea" data-index="20" data-thumb="glacier">
+        <div class="tile-thumb-container"><img class="tile-img" id="img-glacier" alt="GLACIER Arctic"></div>
         <div class="tile-info">
-          <span class="tag">KINEMATICS</span>
-          <h3>🌀 02. Okazz Constrain() Lab</h3>
-          <p>Distance-constrained joint kinematics, screen edge bouncing & mouse spring tension pulling.</p>
-        </div>
-      </div>
-
-      <!-- 03. ABYSSAL Deep -->
-      <div class="card-tile" data-cat="sea" data-index="17" data-thumb="abyssal">
-        <div class="tile-thumb-container"><img class="tile-img" id="img-abyssal" alt="ABYSSAL Deep"></div>
-        <div class="tile-info">
-          <span class="tag">DEEP SEA</span>
-          <h3>🌊 03. ABYSSAL - The Living Deep</h3>
-          <p>Vertical ocean column scrolling from 0m Surface down to 8,000m Hadal Trench fauna.</p>
+          <span class="tag">3D & ARCTIC</span>
+          <h3>🧊 06. GLACIER - The Living Arctic</h3>
+          <p>100% procedural 3D glacier cliffs, Subsurface Scattering translucent ice & Aurora sky.</p>
         </div>
       </div>
 
       <!-- 04. #つぶやきGLSL -->
-      <div class="card-tile" data-cat="sea" data-index="18" data-thumb="tsubuyaki">
+      <div class="card-tile" data-cat="sea" data-index="21" data-thumb="tsubuyaki">
         <div class="tile-thumb-container"><img class="tile-img" id="img-tsubuyaki" alt="#つぶやきGLSL"></div>
         <div class="tile-info">
           <span class="tag">GLSL SHADERS</span>
@@ -281,8 +317,28 @@
         </div>
       </div>
 
+      <!-- 03. ABYSSAL Deep -->
+      <div class="card-tile" data-cat="sea" data-index="22" data-thumb="abyssal">
+        <div class="tile-thumb-container"><img class="tile-img" id="img-abyssal" alt="ABYSSAL Deep"></div>
+        <div class="tile-info">
+          <span class="tag">DEEP SEA</span>
+          <h3>🌊 03. ABYSSAL - The Living Deep</h3>
+          <p>Vertical ocean column scrolling from 0m Surface down to 8,000m Hadal Trench fauna.</p>
+        </div>
+      </div>
+
+      <!-- 01. Sea Angels -->
+      <div class="card-tile" data-cat="sea" data-index="23" data-thumb="angel">
+        <div class="tile-thumb-container"><img class="tile-img" id="img-angel" alt="Sea Angels"></div>
+        <div class="tile-info">
+          <span class="tag">DEEP SEA</span>
+          <h3>👼 01. Sea Angels Flocking & Feeding</h3>
+          <p>Clione limacina boids, high-speed food pursuit sprint AI & dynamic eating growth mechanics.</p>
+        </div>
+      </div>
+
       <!-- 13. Full Aquarium -->
-      <div class="card-tile" data-cat="sea" data-index="19" data-thumb="aquarium">
+      <div class="card-tile" data-cat="sea" data-index="24" data-thumb="aquarium">
         <div class="tile-thumb-container"><img class="tile-img" id="img-aquarium" alt="Full Aquarium"></div>
         <div class="tile-info">
           <span class="tag">DEEP SEA</span>
@@ -290,36 +346,52 @@
           <p>Full aquarium combining Sea Angels, Okazz Segment Wigglers, marine snow & light rays.</p>
         </div>
       </div>
+
+      <!-- 02. Okazz Wigglers -->
+      <div class="card-tile" data-cat="sea" data-index="25" data-thumb="okazz">
+        <div class="tile-thumb-container"><img class="tile-img" id="img-okazz" alt="Okazz Wigglers"></div>
+        <div class="tile-info">
+          <span class="tag">KINEMATICS</span>
+          <h3>🌀 02. Okazz Constrain() Lab</h3>
+          <p>Distance-constrained joint kinematics, screen edge bouncing & mouse spring tension pulling.</p>
+        </div>
+      </div>
     </div>
   </div>
 
   <!-- Fullscreen Interactive Canvas Frame Viewer -->
   <main id="viewer-container" class="viewer-container">
-    <iframe id="sketch-frame" src="19-wavy-structure-distortion/index.html" frameborder="0"></iframe>
+    <iframe id="sketch-frame" src="25-quantum-hyper-dimensional-face/index.html" frameborder="0"></iframe>
   </main>
 
   <script>
     const sketches = [
+      { title: "🌌 26. Quantum Hyper-Dimensional Face Studio", src: "25-quantum-hyper-dimensional-face/index.html", cat: "game" },
+      { title: "🔨 25. 3D POV Hammer Emoji Smasher Game", src: "24-hammer-emoji-smasher-3d/index.html", cat: "game" },
+      { title: "🏎️ 16. Rogue Red Car Smasher", src: "15-rogue-red-car-smasher/index.html", cat: "game" },
+      { title: "🗺️ 15. Map Image → 3D Real-World City & Water", src: "14-map-image-to-3d-city/index.html", cat: "game" },
+      { title: "🏙️ 14. Three.js Real-World City & Traffic", src: "13-threejs-real-world-city/index.html", cat: "game" },
+      { title: "🧊 24. Three.js 3D Volumetric Voxel Cube Studio", src: "23-threejs-3d-voxel-cube/index.html", cat: "game" },
+      { title: "🧊 23. Three.js 3D Image-to-Pixel Art Studio", src: "22-threejs-image-to-pixel-art/index.html", cat: "game" },
+      { title: "🏖️ 08. Three.js Ocean Beach & Waves", src: "08-threejs-beach-waves/index.html", cat: "game" },
+      { title: "🦉 07. Celestial 3D Owl & Tree Perch", src: "07-procedural-owl/index.html", cat: "game" },
+      { title: "🌲 05. Endless 3D POV Forest", src: "05-infinite-pov-forest/index.html", cat: "game" },
+      { title: "🔴🟢🔵 22. Additive RGB Color Mixing Growing Dot Grid", src: "21-rgb-color-mixing-dots/index.html", cat: "math" },
       { title: "🌊 20. Procedural Wavy Structure Studio", src: "19-wavy-structure-distortion/index.html", cat: "math" },
       { title: "🖼️ 19. Pixelated Image Elastic Grid", src: "18-pixelated-image-elastic-grid/index.html", cat: "math" },
       { title: "🏀 18. OpenProcessing Elastic Grid Bounce", src: "17-openprocessing-grid-bounce/index.html", cat: "math" },
       { title: "✍️ 17. Cursive Name Particle Morphing", src: "16-cursive-name-particle-morph/index.html", cat: "math" },
-      { title: "🏎️ 16. Rogue Red Car Smasher", src: "15-rogue-red-car-smasher/index.html", cat: "game" },
-      { title: "🗺️ 15. Map Image → 3D Real-World City & Water", src: "14-map-image-to-3d-city/index.html", cat: "game" },
-      { title: "🏙️ 14. Three.js Real-World City & Traffic", src: "13-threejs-real-world-city/index.html", cat: "game" },
-      { title: "🏖️ 08. Three.js Ocean Beach & Waves", src: "08-threejs-beach-waves/index.html", cat: "game" },
-      { title: "🦉 07. Celestial 3D Owl & Tree Perch", src: "07-procedural-owl/index.html", cat: "game" },
-      { title: "🧊 06. GLACIER - The Living Arctic", src: "06-procedural-glaciers/index.html", cat: "game" },
-      { title: "🌲 05. Endless 3D POV Forest", src: "05-infinite-pov-forest/index.html", cat: "game" },
       { title: "🌀 12. Fibonacci Golden Spiral", src: "12-fibonacci-spiral-growth/index.html", cat: "math" },
       { title: "✂️ 11. Grid Line Splitter & Weaver", src: "11-grid-line-splitter/index.html", cat: "math" },
       { title: "✏️ 10. Interactive Draw-to-Generate", src: "10-interactive-draw-lines/index.html", cat: "math" },
       { title: "⚡ 09. Infinite Glowing GLSL Lines", src: "09-infinite-glsl-lines/index.html", cat: "math" },
-      { title: "👼 01. Sea Angels Flocking & Feeding", src: "01-sea-angels/index.html", cat: "sea" },
-      { title: "🌀 02. Okazz Constrain() Lab", src: "02-okazz-constrain-wigglers/index.html", cat: "sea" },
-      { title: "🌊 03. ABYSSAL - The Living Deep", src: "03-abyssal-living-deep/index.html", cat: "sea" },
+      { title: "🌌 21. Bioluminescent Aurora Lights Flow", src: "20-aurora-borealis-flow/index.html", cat: "sea" },
+      { title: "🧊 06. GLACIER - The Living Arctic", src: "06-procedural-glaciers/index.html", cat: "sea" },
       { title: "✨ 04. #つぶやきGLSL Studio", src: "04-tsubuyaki-glsl-shaders/index.html", cat: "sea" },
-      { title: "🐠 13. Combined Deep Sea Aquarium", src: "01-deep-sea-aquarium/index.html", cat: "sea" }
+      { title: "🌊 03. ABYSSAL - The Living Deep", src: "03-abyssal-living-deep/index.html", cat: "sea" },
+      { title: "👼 01. Sea Angels Flocking & Feeding", src: "01-sea-angels/index.html", cat: "sea" },
+      { title: "🐠 13. Combined Deep Sea Aquarium", src: "01-deep-sea-aquarium/index.html", cat: "sea" },
+      { title: "🌀 02. Okazz Constrain() Lab", src: "02-okazz-constrain-wigglers/index.html", cat: "sea" }
     ];
 
     let currentIndex = 0;

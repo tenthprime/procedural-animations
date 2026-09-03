@@ -1,12 +1,18 @@
 /**
  * Procedural Thumbnail Banner Generator for threejs.org-Style Gallery Grid
- * Generates 20 high-resolution 16:9 preview images for all projects.
+ * Generates 26 high-resolution 16:9 preview images for all projects.
  */
 
 function generateProjectThumbnails() {
   let thumbData = {};
 
   let configs = [
+    { id: 'quantum', title: '🌌 Quantum Hyper-Dimensional Face', bg: '#020617', c1: '#c084fc', c2: '#38bdf8', type: 'grid' },
+    { id: 'hammer', title: '🔨 3D POV Hammer Emoji Smasher', bg: '#020617', c1: '#ef4444', c2: '#f59e0b', type: 'city' },
+    { id: 'cube3d', title: '🧊 Three.js 3D Volumetric Voxel Cube', bg: '#020617', c1: '#f59e0b', c2: '#0284c7', type: 'grid' },
+    { id: 'pixel3d', title: '🧊 Three.js 3D Image Pixel Art', bg: '#020617', c1: '#38bdf8', c2: '#0d9488', type: 'grid' },
+    { id: 'rgb', title: '🔴 Additive RGB Mixing Dots', bg: '#000000', c1: '#ef4444', c2: '#10b981', type: 'grid' },
+    { id: 'aurora', title: '🌌 Aurora Lights Flow', bg: '#020617', c1: '#10b981', c2: '#38bdf8', type: 'lines' },
     { id: 'wavy', title: '🌊 Wavy Structure Studio', bg: '#030712', c1: '#38bdf8', c2: '#0284c7', type: 'lines' },
     { id: 'pixel', title: '🖼️ Pixelated Image Elastic Grid', bg: '#0f172a', c1: '#fbbf24', c2: '#38bdf8', type: 'grid' },
     { id: 'bounce', title: '🏀 OpenProcessing Grid Bounce', bg: '#f0f0f0', c1: '#ED4141', c2: '#FECA16', type: 'grid' },
@@ -63,7 +69,7 @@ function generateProjectThumbnails() {
       }
     } else if (cfg.type === 'beach') {
       ctx.fillStyle = '#fef08a'; ctx.beginPath(); ctx.arc(320, 50, 30, 0, Math.PI * 2); ctx.fill();
-      ctx.fillStyle = cfg.c1; ctx.beginPath(); ctx.ellipse(200, 180, 220, 60, 0, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = '#00b4d8'; ctx.beginPath(); ctx.ellipse(200, 180, 220, 60, 0, 0, Math.PI * 2); ctx.fill();
       ctx.fillStyle = '#eab308'; ctx.beginPath(); ctx.ellipse(100, 210, 180, 40, 0, 0, Math.PI * 2); ctx.fill();
     } else if (cfg.type === 'spiral') {
       ctx.strokeStyle = cfg.c1; ctx.lineWidth = 4;

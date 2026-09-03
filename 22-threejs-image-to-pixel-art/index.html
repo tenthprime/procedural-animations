@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Three.js 3D Image-to-Pixel Art Studio</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gifshot/0.3.2/gifshot.min.js"></script>
+</head>
+<body>
+  <div id="canvas-container"></div>
+
+  <!-- Slide-In Control Drawer Toggle Button -->
+  <button id="toggle-panel-btn" class="panel-toggle-btn" title="Toggle Controls">
+    <span id="toggle-icon">⚙️</span> Controls
+  </button>
+
+  <!-- Slide-In Control Panel Drawer -->
+  <div id="control-panel" class="panel">
+    <div class="panel-header">
+      <h2>🧊 Three.js 3D Image Pixel Studio</h2>
+      <p class="subtitle">Instant Image-to-3D Voxels, Waves & Dots</p>
+    </div>
+
+    <!-- Upload Custom Image / Face Button -->
+    <div class="control-group">
+      <label for="img-upload-input" class="upload-btn-label">
+        📁 Upload Image / Face (.png/.jpg)
+      </label>
+      <input type="file" id="img-upload-input" accept="image/*" style="display: none;">
+    </div>
+
+    <div class="control-group">
+      <label>3D Pixel Geometry Shape:</label>
+      <select id="select-shape">
+        <option value="sphere">🟢 3D Spheres / Dots</option>
+        <option value="box">🧊 3D Cubes / Voxels</option>
+        <option value="cylinder">🧪 3D Cylinders / Pillars</option>
+        <option value="cone">🔺 3D Pyramids / Crystals</option>
+      </select>
+    </div>
+
+    <div class="control-group">
+      <label>Shading & Material Theme:</label>
+      <select id="select-material">
+        <option value="standard">🎨 Standard Image Colors</option>
+        <option value="metallic">✨ Metallic Reflection</option>
+        <option value="neon">💖 Neon Cyberpunk Glow</option>
+        <option value="glass">💎 Glass Crystal</option>
+      </select>
+    </div>
+
+    <div class="control-group">
+      <label for="grid-size-slider">3D Grid Resolution: <span id="val-grid">40</span> x <span id="val-grid-2">40</span></label>
+      <input type="range" id="grid-size-slider" min="15" max="90" step="5" value="40">
+    </div>
+
+    <div class="control-group">
+      <label for="wave-amp-slider">3D Wave Amplitude: <span id="val-wave">25</span>px</label>
+      <input type="range" id="wave-amp-slider" min="0" max="80" step="5" value="25">
+    </div>
+
+    <div class="control-group">
+      <label for="dot-float-slider">Kinetic Dot Swarm Motion: <span id="val-float">1.0</span>x</label>
+      <input type="range" id="dot-float-slider" min="0.0" max="3.0" step="0.2" value="1.0">
+    </div>
+
+    <div class="control-group">
+      <label for="depth-extrude-slider">3D Depth Extrusion: <span id="val-extrude">1.5</span>x</label>
+      <input type="range" id="depth-extrude-slider" min="0.2" max="4.0" step="0.2" value="1.5">
+    </div>
+
+    <div class="control-group">
+      <label class="chk-label"><input type="checkbox" id="chk-auto-rotate" checked> 360° Auto Camera Orbit</label>
+      <label class="chk-label"><input type="checkbox" id="chk-waves" checked> Continuous 3D Wave Waves</label>
+    </div>
+
+    <button id="btn-gif" class="btn btn-gif">🎞️ Download Animated GIF</button>
+    <button id="btn-download" class="btn btn-primary">📸 Download HD PNG</button>
+
+    <div class="stats">
+      <span>3D Voxels: <span id="stat-voxels">1600</span></span>
+      <span>GPU Draw Calls: <span id="stat-draw">1</span></span>
+    </div>
+  </div>
+
+  <div class="hint">
+    <span>🖱️ Drag to rotate 3D camera! Upload any image to instantly voxelize into 3D kinetic dots!</span>
+  </div>
+
+  <script src="js/image3dParser.js"></script>
+  <script src="js/pixel3dEngine.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
